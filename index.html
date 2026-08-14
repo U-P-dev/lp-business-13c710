@@ -1,588 +1,733 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>テンポラネオ食堂 | 飲食店のランディングページ</title>
-  <meta name="description" content="飲食店のテンポラネオ食堂。日本、〒167-0051 東京都杉並区荻窪５丁目１８−９ 杜ビル １階にて営業中。お気軽にお問い合わせください。">
-  <meta property="og:title" content="テンポラネオ食堂">
-  <meta property="og:description" content="飲食店のテンポラネオ食堂。日本、〒167-0051 東京都杉並区荻窪５丁目１８−９ 杜ビル １階">
-  <meta property="og:type" content="website">
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="canonical" href="./">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;600;700&amp;family=Klee+One:wght@400;500;600;700&amp;family=Amatic+SC:wght@400;700&amp;display=swap"><style>*,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:#fffdf6;color:#3c3835;font-family:'Zen Maru Gothic', system-ui, sans-serif;
-  font-size:16px;line-height:2.0;letter-spacing:.04em;
-  -webkit-font-smoothing:antialiased;padding-bottom:0}
-img{max-width:100%;height:auto;display:block}
-a{color:#237151}
-h1,h2,h3{font-family:'Klee One', 'Hiragino Mincho ProN', serif;font-weight:600;line-height:1.45;
-  letter-spacing:.02em;margin:0}
-h2{font-size:clamp(22px,3.4vw,30px)}
-h3{font-size:17px}
-p{margin:0}
-.wrap{width:min(1080px,92vw);margin-inline:auto}
-.narrow{width:min(760px,92vw);margin-inline:auto}
-.sec{padding:76px 0}
-.sec--panel{background:#fbf3dc}
-.sec__head{margin-bottom:30px}
-.sec__eyebrow{display:block;font-size:13px;letter-spacing:.14em;
-  font-family:'Amatic SC', 'Comic Sans MS', cursive;color:#237151;margin-bottom:10px;font-weight:700}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  background:#35a074;color:#14171c;text-decoration:none;font-weight:700;
-  padding:16px 32px;border-radius:999px;border:0;cursor:pointer;font-size:16px;
-  font-family:inherit;transition:transform .2s ease,box-shadow .2s ease}
-.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px -12px #267354}
-.btn--ghost{background:transparent;color:#237151;
-  box-shadow:inset 0 0 0 1.5px #35a074}
-.ic{flex:none}
-.vbar{background:#3c3835;color:#ffffff;padding:12px 0;font-size:13px;line-height:1.7}
-.vbar__inner{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>テンポラネオ食堂 | 飲食店のランディングページ</title>
+
+<style>
+  :root{
+    --paper:#f7f5ef;         
+    --paper-2:#efe9dc;       
+    --ink:#241f1c;           
+    --ink-soft:#6b6159;
+    --rule:#ded6c6;          
+    --rule-2:#c6bca6;
+    --seal:#8f3a2a;          
+    --slot-bg:rgba(36,31,28,.045);
+    --slot-line:#b3a992;
+    --jp:"游明朝",YuMincho,"Hiragino Mincho ProN","ヒラギノ明朝 ProN W3","Yu Mincho",serif;
+    --en:Georgia,"Times New Roman",serif;  
+    
+    --grain:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='170'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='170' height='170' filter='url(%23p)' opacity='0.085'/%3E%3C/svg%3E");
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background-color:var(--paper);
+    background-image:var(--grain);
+    background-size:170px 170px;
+    color:var(--ink);
+    font-family:var(--jp);font-size:14px;
+    line-height:2.05;letter-spacing:.07em;
+    font-feature-settings:"palt";
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%}
+  a{color:var(--ink);text-decoration:none}
+  
+  .np{display:inline-block}
+
+  
+  .ph{position:relative;overflow:hidden;background:#e8e3d7}
+  .ph::after{ 
+    content:attr(data-slot);position:absolute;right:9px;bottom:8px;
+    font-family:var(--en);font-size:10px;letter-spacing:.14em;
+    color:rgba(36,31,28,.6);background:rgba(247,245,239,.86);
+    padding:3px 9px;border:1px dashed var(--slot-line);border-radius:2px;
+    line-height:1.6;white-space:nowrap}
+
+  
+  header{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:18px;padding:11px 5vw;
+    background-color:rgba(239,233,220,.94);
+    background-image:var(--grain);background-size:170px 170px;
+    border-bottom:1px solid var(--rule-2);
+    backdrop-filter:blur(4px);
+  }
+  .brand{display:flex;align-items:center;gap:11px}
+  
+  .seal{flex:0 0 auto;width:29px;height:29px;background:var(--seal);
+    color:#fff;display:flex;align-items:center;justify-content:center;
+    font-size:15px;line-height:1;border-radius:2px}
+  .brand__name{font-size:16px;letter-spacing:.2em;line-height:1.5}
+  .brand__en{display:block;font-family:var(--en);font-style:italic;
+    font-size:10.5px;letter-spacing:.16em;color:var(--ink-soft);line-height:1.6}
+  nav{display:flex;gap:26px;align-items:center}
+  nav a{font-size:12.5px;letter-spacing:.14em}
+  nav a:hover{opacity:.45;transition:opacity .4s}
+  .btn-key{background:var(--ink);color:var(--paper);
+    padding:9px 22px;border-radius:3px;letter-spacing:.2em;
+    transition:opacity .4s}
+  .btn-key:hover{opacity:.72}
+
+  
+  .hero{padding:76px 0 0}
+  .hero__inner{max-width:1000px;margin:0 auto;padding:0 5vw}
+  
+  .hero__photo{aspect-ratio:2/1;animation:soft-in 1.1s ease .1s both}
+  @keyframes soft-in{from{opacity:0}to{opacity:1}}
+  .hero__copy{margin-top:38px;font-size:clamp(23px,3.1vw,33px);
+    font-weight:normal;line-height:1.95;letter-spacing:.26em;
+    animation:soft-in 1.1s ease .35s both}
+  .hero__copy .ln{display:block}
+  .hero__where{margin-top:22px;font-size:13.5px;color:var(--ink-soft);
+    letter-spacing:.14em;animation:soft-in 1.1s ease .5s both}
+  
+  .hero__desk{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;
+    margin-top:26px;padding:18px 22px;border:1px solid var(--rule-2);
+    background:rgba(255,255,255,.46);
+    animation:soft-in 1.1s ease .65s both}
+  .hero__desk dl{display:flex;align-items:baseline;gap:10px}
+  .hero__desk dt{font-size:12px;letter-spacing:.18em;color:var(--ink-soft)}
+  .hero__desk dd{font-size:14.5px;letter-spacing:.1em}
+  .hero__desk .tel{font-family:var(--en);font-size:19px;letter-spacing:.04em}
+  .hero__desk .btn-key{margin-left:auto;font-size:13px}
+
+  
+  .band{padding:0 0 76px}
+  .band__inner{max-width:1000px;margin:0 auto;padding:0 5vw}
+  
+  .hd{border-top:1px solid var(--rule);padding-top:72px;margin-bottom:30px}
+  .hd__en{font-family:var(--en);font-style:italic;font-size:12.5px;
+    letter-spacing:.2em;color:var(--ink-soft)}
+  .hd h2{margin-top:5px;font-size:21px;font-weight:normal;
+    letter-spacing:.16em;line-height:1.9;position:relative;padding-left:24px}
+  
+  .hd h2::before{content:"";position:absolute;left:0;top:.92em;
+    width:13px;height:1px;background:var(--rule-2)}
+  .lead{max-width:34em;font-size:14.5px}
+  .note-s{margin-top:14px;font-size:12.5px;color:var(--ink-soft);line-height:2}
+
+  
+  .grp{margin-top:34px;font-size:12.5px;letter-spacing:.26em;
+    color:var(--ink-soft)}
+  .grp:first-of-type{margin-top:26px}
+  .rows{list-style:none;margin-top:10px}
+  .row{display:flex;align-items:baseline;gap:18px;padding:12px 3px;
+    border-bottom:1px solid var(--rule);transition:border-color .4s}
+  .row:hover{border-color:var(--rule-2)}
+  .row__name{flex:1 1 auto;font-size:15px;letter-spacing:.12em}
+  .row__note{display:block;margin-top:2px;font-size:12.5px;
+    line-height:1.9;letter-spacing:.06em;color:var(--ink-soft)}
+  .row__pr{flex:0 0 auto;font-family:var(--en);font-size:16px;
+    letter-spacing:.04em}
+  
+  .menu-note{margin-top:22px;max-width:34em;font-size:12.5px;
+    color:var(--ink-soft);line-height:2}
+
+  
+  .honest{margin-top:44px;border:1px solid var(--rule-2);
+    background:rgba(255,255,255,.5);padding:24px 26px 20px}
+  .honest h3{font-size:14.5px;font-weight:normal;letter-spacing:.18em}
+  .honest .note-s{margin-top:8px}
+  .honest dl{margin-top:14px}
+  .honest dl div{display:flex;align-items:baseline;gap:16px;
+    padding:10px 2px;border-bottom:1px dotted var(--rule-2)}
+  .honest dl div:last-child{border-bottom:0}
+  .honest dt{flex:1 1 auto;font-size:13.5px;letter-spacing:.1em}
+  .honest dd{flex:0 0 auto;font-size:13.5px;letter-spacing:.08em;
+    text-align:right}
+  .honest .free{color:var(--ink-soft)}
+
+  
+  .beans{list-style:none;margin-top:8px}
+  .bean{display:flex;align-items:flex-start;gap:18px;padding:19px 3px;
+    border-bottom:1px solid var(--rule)}
+  .bean__no{flex:0 0 2.2em;font-family:var(--en);font-style:italic;
+    font-size:14px;color:var(--ink-soft);line-height:2.2}
+  .bean__body{flex:1 1 auto}
+  
+  .bean__name{display:block;font-size:16px;letter-spacing:.14em;line-height:1.9}
+  .bean__meta{display:block;margin-top:2px;font-size:12.5px;
+    letter-spacing:.16em;color:var(--ink-soft);line-height:1.9}
+  .bean__desc{display:block;margin-top:6px;font-size:13.5px;line-height:2;
+    max-width:32em}
+  .bean__pr{flex:0 0 auto;font-family:var(--en);font-size:15px;
+    letter-spacing:.04em;line-height:2.3}
+
+  
+  .reserve{background-color:var(--paper-2);background-image:var(--grain);
+    background-size:170px 170px}
+  .reserve .hd{border-top:0}
+  .ways{display:flex;gap:20px;margin-top:6px}
+  .way{flex:1 1 0;border:1px solid var(--rule-2);padding:24px 24px 26px;
+    background:rgba(255,255,255,.44)}
+  
+  .way__label{display:block;font-size:12.5px;letter-spacing:.22em;
+    color:var(--ink-soft)}
+  .way__value{display:block;margin-top:10px;font-family:var(--en);
+    font-size:25px;letter-spacing:.05em;line-height:1.5}
+  .way__note{margin-top:10px;font-size:12.5px;line-height:2;
+    color:var(--ink-soft)}
+  .way .btn-key{display:inline-block;margin-top:12px;font-size:13.5px;
+    padding:13px 34px}
+  .promise{list-style:none;margin-top:30px}
+  .promise li{position:relative;padding:9px 0 9px 22px;font-size:13.5px;
+    line-height:2;border-bottom:1px solid var(--rule)}
+  .promise li::before{content:"";position:absolute;left:2px;top:1.28em;
+    width:7px;height:1px;background:var(--rule-2)}
+
+  
+  .pledges{display:grid;grid-template-columns:1fr 1fr;gap:28px 44px;
+    margin-top:38px}
+  .pledge{border-top:1px solid var(--rule);padding-top:15px}
+  .pledge__no{font-size:12px;letter-spacing:.3em;color:var(--ink-soft)}
+  .pledge h3{margin-top:5px;font-size:16px;font-weight:normal;
+    letter-spacing:.14em;line-height:1.9}
+  .pledge p{margin-top:7px;font-size:13px;line-height:2;color:var(--ink-soft)}
+  .strip{display:flex;gap:12px;margin-top:40px}
+  .strip .ph{flex:1 1 0;aspect-ratio:3/2}
+
+  
+  .person{display:flex;align-items:flex-start;gap:6%}
+  .person__photo{flex:0 0 36%;aspect-ratio:3/4}
+  .person__body{flex:1 1 auto}
+  .person__name{font-size:18px;letter-spacing:.16em;line-height:1.8}
+  .person__role{display:block;font-size:12.5px;letter-spacing:.2em;
+    color:var(--ink-soft);line-height:1.9}
+  .person dl{margin-top:18px}
+  .person dl div{display:flex;align-items:baseline;gap:16px;padding:11px 2px;
+    border-bottom:1px solid var(--rule)}
+  .person dt{flex:0 0 9.5em;font-size:12.5px;letter-spacing:.14em;
+    color:var(--ink-soft)}
+  .person dd{flex:1 1 auto;font-size:13.5px;line-height:1.95}
+
+  
+  .access{display:flex;align-items:flex-start;gap:6%}
+  .access__body{flex:1 1 0}
+  .access dl div{display:flex;align-items:baseline;gap:16px;padding:11px 2px;
+    border-bottom:1px solid var(--rule)}
+  .access dt{flex:0 0 7em;font-size:12.5px;letter-spacing:.14em;
+    color:var(--ink-soft)}
+  .access dd{flex:1 1 auto;font-size:13.5px;line-height:1.95}
+  .access .ph{flex:0 0 44%;aspect-ratio:4/3}
+
+  
+  footer{border-top:1px solid var(--rule-2);padding:52px 5vw 96px;
+    text-align:center}
+  footer .brand{justify-content:center}
+  footer p{margin-top:18px;font-size:12.5px;color:var(--ink-soft);
+    line-height:2.1}
+  .sns{display:flex;justify-content:center;gap:12px;margin-top:22px}
+  .sns a{width:34px;height:34px;border:1px solid var(--rule-2);
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:var(--en);font-style:italic;font-size:12px;
+    color:var(--ink-soft);transition:opacity .4s}
+  .sns a:hover{opacity:.5}
+  footer small{display:block;margin-top:26px;font-family:var(--en);
+    font-size:10px;letter-spacing:.2em;color:var(--ink-soft)}
+
+  
+  .sp-bar{display:none}
+  @media(max-width:820px){
+    nav a:not(.btn-key){display:none}
+    .brand__en{display:none}
+    .hero{padding-top:66px}
+    .hero__photo{aspect-ratio:4/3}
+    .hero__copy{margin-top:30px;letter-spacing:.24em}
+    .hero__desk{gap:12px 18px;padding:16px 18px}
+    .hero__desk .btn-key{margin-left:0;width:100%;text-align:center}
+    .band{padding-bottom:60px}
+    .hd{padding-top:56px}
+    .row{gap:12px}
+    .bean{gap:12px}
+    .bean__desc{max-width:none}
+    .ways{flex-direction:column;gap:14px}
+    .pledges{grid-template-columns:1fr;gap:22px}
+    
+    .strip{flex-direction:column;align-items:stretch;gap:10px}
+    .person,.access{flex-direction:column;align-items:stretch;gap:28px}
+    .person__photo{flex:none;width:66%;max-width:280px}
+    .access .ph{flex:none;width:100%}
+    
+    .person dl div{flex-direction:column;align-items:stretch;gap:0;
+      padding:12px 2px}
+    .person dt{flex:none}
+    .person dd{flex:none;margin-top:1px}
+    .access dt{flex:0 0 6em}
+    .sp-bar{display:flex;position:fixed;inset:auto 0 0 0;z-index:60}
+    .sp-bar a{flex:1;text-align:center;padding:15px 0;font-size:13.5px;
+      letter-spacing:.18em;color:var(--paper);background:var(--ink)}
+    .sp-bar a+a{border-left:1px solid rgba(247,245,239,.28)}
+    body{padding-bottom:52px}
+    footer{padding-bottom:64px}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    
+    *{animation:none!important;transition:none!important}
+    .hero__photo,.hero__copy,.hero__where,.hero__desk{opacity:1}
+    html{scroll-behavior:auto}
+  }
+
+  @media(max-width:820px){}
+  .spec{max-width:1000px;margin:70px auto 56px;padding:32px 5vw;
+    border:1px dashed var(--slot-line);background:var(--slot-bg);
+    font-size:12.5px;line-height:2.05;color:var(--ink);overflow-x:auto}
+  .spec h3{font-size:13px;letter-spacing:.2em;margin-bottom:10px;
+    font-weight:normal}
+  .spec table{border-collapse:collapse;width:100%;margin:10px 0}
+  .spec td,.spec th{border:1px solid var(--rule-2);padding:5px 12px;
+    text-align:left;font-weight:normal;font-size:12px}
+
+
+.ph::after,.ph::before{content:none!important;display:none!important}
+.ph{border:0!important;background:transparent!important}
+.ph>img,.ph .slide>img{width:100%;height:100%;object-fit:cover;display:block}
+.ph .slide{background-size:cover;background-position:center}
+</style>
+<meta name="description" content="飲食店のテンポラネオ食堂。日本、〒167-0051 東京都杉並区荻窪５丁目１８−９ 杜ビル １階にて営業中。お気軽にお問い合わせください。">
+<meta property="og:title" content="テンポラネオ食堂">
+<meta property="og:description" content="飲食店のテンポラネオ食堂。日本、〒167-0051 東京都杉並区荻窪５丁目１８−９ 杜ビル １階">
+<meta property="og:type" content="website">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="./">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "テンポラネオ食堂", "address": {"@type": "PostalAddress", "streetAddress": "日本、〒167-0051 東京都杉並区荻窪５丁目１８−９ 杜ビル １階"}, "telephone": ""}</script>
+<style>
+.vbar{position:relative;z-index:10000;background:#1c1c1c;color:#fff;
+  padding:12px 0;font-size:13px;line-height:1.7;font-family:sans-serif}
+.vbar .wrap{max-width:1080px;margin:0 auto;padding:0 20px;
+  display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
 .vbar__note{opacity:.75;flex:1 1 260px;min-width:0}
 .vbar__list{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
-.vbar__link{display:inline-block;color:#ffffff;text-decoration:none;
+.vbar__link{display:inline-block;color:#fff;text-decoration:none;
   padding:6px 14px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
-.vbar__link[aria-current]{background:#ffffff;color:#3c3835;font-weight:700;box-shadow:none}
-.hero{padding:76px 0 64px;background:#e7f2e6;position:relative}
-.hero__grid{display:grid;gap:40px;align-items:center}
-.hero--split .hero__grid{grid-template-columns:1.05fr .95fr}
-.hero--center{text-align:center}
-.hero--center .hero__actions{justify-content:center}
-.hero--cover{background:#267354;color:#fff}
-.hero--cover .hero__lead,.hero--cover .hero__meta{color:rgba(255,255,255,.86)}
-.hero--cover .btn--ghost{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.72)}
-.hero__kicker{display:inline-block;font-size:14px;font-weight:700;
-  background:#fffdf6;color:#237151;padding:6px 16px;border-radius:999px;
-  margin-bottom:20px}
-.hero--cover .hero__kicker{background:rgba(255,255,255,.16);color:#fff}
-.hero__title{font-size:clamp(28px,5.2vw,50px);margin-bottom:20px}
-.hero__lead{font-size:clamp(16px,1.9vw,19px);color:#6b645d;margin-bottom:28px}
-.hero__actions{display:flex;flex-wrap:wrap;gap:14px}
-.hero__meta{margin-top:24px;font-size:14px;color:#6b645d}
-.hero__figure{margin:0}
-.hero__figure img{border-radius:16px;width:100%;object-fit:cover;aspect-ratio:4/3}
-.hero__caption{font-size:12px;color:#6b645d;margin-top:8px}
-.hero--cover .hero__caption{color:rgba(255,255,255,.7)}
-.facts{background:#fffdf6;border-block:1px solid #e8dfc9}
-.facts__list{display:grid;gap:0;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  list-style:none;margin:0;padding:0}
-.facts__item{display:flex;gap:12px;align-items:flex-start;padding:22px 8px}
-.facts__item+.facts__item{border-left:1px solid #e8dfc9}
-.facts__icon{color:#237151}
-.facts__label{font-size:12px;letter-spacing:.12em;color:#6b645d}
-.facts__value{font-weight:700;font-size:15px}
-.facts__value--sm{font-weight:400;font-size:14px;white-space:pre-line;line-height:1.7}
-.cards{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(248px,1fr))}
-.card{background:#fffdf6;border:1px solid #e8dfc9;border-radius:16px;padding:30px 26px}
-.card__icon{color:#237151;margin-bottom:16px}
-.card__title{margin-bottom:10px}
-.card__body{color:#6b645d;font-size:15px}
-.symptoms{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  list-style:none;margin:0;padding:0}
-.symptom{display:flex;gap:12px;align-items:flex-start;background:#fffdf6;
-  border:1px solid #e8dfc9;border-radius:16px;padding:18px 20px;font-size:15px}
-.symptom__icon{color:#237151;flex:none}
-.rows{display:grid;gap:12px;margin:0;padding:0;list-style:none}
-.row{display:flex;flex-wrap:wrap;gap:6px 20px;justify-content:space-between;
-  align-items:baseline;padding:18px 22px;background:#fffdf6;border:1px solid #e8dfc9;
-  border-radius:16px}
-.row__name{font-weight:700}
-.row__note{font-size:13px;color:#6b645d;flex-basis:100%}
-.row__value{color:#237151;font-weight:700;white-space:nowrap}
-.price-lead{background:#e7f2e6;border-radius:16px;padding:26px 28px;
-  margin-bottom:22px}
-.price-lead__label{font-size:13px;letter-spacing:.12em;color:#237151;font-weight:700}
-.price-lead__value{font-size:clamp(24px,4vw,34px);font-weight:700;color:#237151;
-  font-family:'Klee One', 'Hiragino Mincho ProN', serif}
-.price-lead__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
-.price-lead__actions .btn{font-size:15px;padding:13px 22px}
-.price-note{margin-top:16px;font-size:14px;color:#6b645d}
-.steps{display:grid;gap:0;margin:0;padding:0;list-style:none;counter-reset:step}
-.step{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:24px 0;
-  border-bottom:1px solid #e8dfc9}
-.step:first-child{border-top:1px solid #e8dfc9}
-.step__no{width:44px;height:44px;border-radius:999px;background:#35a074;color:#14171c;
-  display:grid;place-items:center;font-weight:700;font-family:'Klee One', 'Hiragino Mincho ProN', serif}
-.step__title{margin-bottom:6px}
-.step__body{color:#6b645d;font-size:15px}
-.people{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.person{background:#fffdf6;border:1px solid #e8dfc9;border-radius:16px;padding:26px}
-.person__icon{color:#237151;margin-bottom:14px}
-.person__role{font-size:13px;color:#6b645d}
-.person__name{margin:4px 0 10px}
-.person__body{color:#6b645d;font-size:15px}
-.gallery{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.gallery figure{margin:0}
-.gallery img{border-radius:16px;width:100%;aspect-ratio:4/5;object-fit:cover}
-.gallery figcaption{font-size:13px;color:#6b645d;margin-top:8px}
-.gallery__slot{border-radius:16px;aspect-ratio:4/3;background:#fbf3dc;
-  border:1px dashed #e8dfc9;display:flex;align-items:center;justify-content:center}
-.gallery__mark{color:#6b645d;opacity:.55;display:flex}
-.info{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.info__item{display:flex;gap:14px}
-.info__icon{color:#237151}
-.info__label{font-size:12px;letter-spacing:.16em;color:#6b645d;margin-bottom:4px}
-.info__hours{margin:0;white-space:pre-line;font-size:15px}
-.map{margin-top:34px;border:1px solid #e8dfc9;border-radius:16px;overflow:hidden;
-  line-height:0}
-.map iframe{width:100%;height:340px;border:0}
-.map-link{margin-top:28px}
-.map-link a{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;
-  border:1px solid #e8dfc9;border-radius:999px;color:#237151;font-weight:700;
-  font-size:15px;text-decoration:none;background:#fffdf6}
-.map-link a:hover{border-color:#237151}
-.quotes{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
-.quote{background:#fffdf6;border:1px solid #e8dfc9;border-radius:16px;padding:28px}
-.quote__body{color:#6b645d;font-size:15px}
-.quote__by{margin-top:14px;font-size:13px;font-weight:700}
-.qa{border-top:1px solid #e8dfc9}
-.qa__item{border-bottom:1px solid #e8dfc9;padding:24px 0}
-.qa__q{display:flex;gap:12px;font-weight:700}
-.qa__a{display:flex;gap:12px;color:#6b645d;margin-top:12px;font-size:15px}
-.qa__mark{color:#237151;font-weight:700;flex:none}
-.cta{background:#35a074;color:#14171c;border-radius:16px;padding:52px 40px;
-  text-align:center}
-.cta h2{color:inherit}
-.cta__body{margin:16px auto 0;max-width:44em;opacity:.9}
-.cta+.form{margin-top:34px}
-.cta__actions{margin-top:28px}
-.cta .btn{background:#fffdf6;color:#237151;border-color:#fffdf6}
-.form{display:grid;gap:18px}
-.field{display:grid;gap:8px}
-.field label{font-size:14px;font-weight:700}
-.field input,.field textarea{font:inherit;color:inherit;background:#fffdf6;
-  border:1px solid #e8dfc9;border-radius:16px;padding:14px 16px;width:100%}
-.field textarea{min-height:150px;resize:vertical}
-.field input:focus,.field textarea:focus{outline:2px solid #35a074;outline-offset:1px}
-.form__note{font-size:13px;color:#6b645d}
-.form__done{display:none;background:#e7f2e6;color:#237151;font-weight:700;
-  border-radius:16px;padding:18px 22px}
-.sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fffdf6;
-  border-top:1px solid #e8dfc9;padding:10px 12px;
-  box-shadow:0 -6px 24px -16px rgba(0,0,0,.5)}
-.sticky__inner{display:flex;gap:10px;width:min(680px,96vw);margin-inline:auto}
-.sticky .btn{flex:1;padding:14px 16px;font-size:15px}
-body:has(.sticky){padding-bottom:82px}
-.reserve-rail{display:none}
-.legal{background:#fbf3dc;font-size:13px;color:#6b645d;padding:56px 0}
-.legal h2{font-size:19px;color:#3c3835;margin-bottom:18px}
-.legal h3{font-size:14px;margin:18px 0 6px;color:#3c3835}
-.h-quiet .sec__head{padding-bottom:18px;border-bottom:1px solid #e8dfc9}
-.h-quiet .sec__eyebrow{font-size:12px;letter-spacing:.22em}
-.h-display .sec__head{margin-bottom:38px}
-.h-display .sec__eyebrow{font-size:12px;letter-spacing:.2em;opacity:.72}
-.h-display h2{font-size:clamp(28px,6vw,54px);line-height:1.18;letter-spacing:-.01em}
-.h-soft .sec__head{text-align:center;margin-bottom:36px}
-.h-soft .sec__eyebrow{letter-spacing:.2em}
-.h-soft h2{font-size:clamp(23px,4vw,34px);line-height:1.6}
-.m-rule .sec+.sec:not(.sec--panel){border-top:1px solid #e8dfc9}
-.m-diagonal .sec--panel{clip-path:polygon(0 2.6vw,100% 0,100% 100%,0 calc(100% - 2.6vw));
-  padding-block:calc(76px + 2.6vw)}
-.m-diagonal .card{box-shadow:0 18px 40px -30px #267354}
-.m-curve .sec--panel{border-radius:0 0 3vw 3vw;
-  background-image:radial-gradient(#e8dfc9 1.1px,transparent 1.2px);
-  background-size:17px 17px}
-.m-curve .sec--panel+.sec{padding-top:calc(76px + 1vw)}
-.hero__media{position:absolute;inset:0;z-index:0;overflow:hidden}
-.hero__media img{width:100%;height:100%;object-fit:cover;border-radius:0;
-  aspect-ratio:auto}
-.hero--masked{position:relative;isolation:isolate}
-.hero--masked .wrap{position:relative;z-index:2}
-.hero--masked::after{content:"";position:absolute;inset:0;z-index:1;
-  background:linear-gradient(100deg,#267354 0%,rgba(0,0,0,.58) 48%,rgba(0,0,0,.3) 100%)}
-.hero--masked,.hero--masked .hero__title,.hero--masked .hero__lead,
-.hero--masked .hero__meta{color:#fff}
-.hero--masked .hero__kicker{background:rgba(255,255,255,.18);color:#fff}
-.hero--masked .hero__caption{color:rgba(255,255,255,.72);position:relative;z-index:2}
-.hero--masked .btn--ghost{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.7)}
-.mask-dots .hero__media{
-  -webkit-mask-image:radial-gradient(circle,#000 44%,transparent 46%);
-  mask-image:radial-gradient(circle,#000 44%,transparent 46%);
-  -webkit-mask-size:26px 26px;mask-size:26px 26px}
-.mask-dots .hero--cover{background-color:#267354;
-  background-image:radial-gradient(rgba(255,255,255,.13) 44%,transparent 46%);
-  background-size:26px 26px}
-.h-display .hero__title{font-size:clamp(32px,6.4vw,60px);line-height:1.16;
-  letter-spacing:-.01em}
-.h-quiet .hero__title{line-height:1.5;letter-spacing:.05em}
-.h-soft .hero__title{line-height:1.55}
-.m-rule .hero{background:#fffdf6;border-bottom:1px solid #e8dfc9}
-.m-rule .hero__kicker{background:#e7f2e6}
-.m-curve .hero{border-radius:0 0 4vw 4vw}
-.h-display .cta h2{font-size:clamp(24px,3.4vw,36px);line-height:1.4}
-.mask-circle .hero__figure img{
-  -webkit-mask-image:radial-gradient(circle,#000 66%,transparent 68%);
-  mask-image:radial-gradient(circle,#000 66%,transparent 68%);
-  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
-  -webkit-mask-size:cover;mask-size:cover;
-  aspect-ratio:1;border-radius:0}
-.mask-circle .hero__figure{max-width:520px;margin-inline:auto}
-.g-even .gallery{gap:22px}
-.g-even .gallery__slot{border-radius:0;aspect-ratio:3/4}
-.g-rounded .gallery__slot{border-radius:26px;aspect-ratio:1}
-.g-rounded .card,.g-rounded .symptom,.g-rounded .row,.g-rounded .quote,
-.g-rounded .person{border-radius:24px}
-@media (min-width:760px){
-  .g-asymmetric .gallery{grid-template-columns:repeat(6,1fr);gap:16px}
-  .g-asymmetric .gallery>*{grid-column:span 2}
-  .g-asymmetric .gallery>*:nth-child(3n+1){grid-column:span 3}
-  .g-asymmetric .gallery>*:nth-child(3n+2){grid-column:span 3;margin-top:42px}
-  .g-asymmetric .gallery>*:nth-child(3n+3){grid-column:span 6}
-  .g-asymmetric .gallery__slot{aspect-ratio:16/10}
-}
-#statement{padding:calc(76px + 24px) 0}
-.statement__text{font-family:'Klee One', 'Hiragino Mincho ProN', serif;font-size:clamp(19px,2.6vw,27px);
-  line-height:2.3;letter-spacing:.09em;text-align:center;max-width:30em;
-  margin-inline:auto}
-.d-seiji .statement__text::first-letter{font-size:2em;color:#237151;line-height:1}
-.feature{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
-.feature__slot{border-top:1px solid #3c3835;padding-top:20px;min-height:180px;
-  display:flex;flex-direction:column;gap:20px}
-.feature__no{font-family:'Amatic SC', 'Comic Sans MS', cursive;font-size:36px;line-height:1;color:#3c3835}
-.feature__lines{display:grid;gap:14px;margin-top:auto;padding-bottom:8px}
-.feature__lines span{display:block;height:1px;background:#e8dfc9}
-.feature__lines span:nth-child(2){width:82%}
-.feature__lines span:nth-child(3){width:58%}
-.staff-plan{display:grid;gap:14px;list-style:none;margin:0;padding:0;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.staff-plan__item{display:flex;gap:12px;align-items:center;background:#fffdf6;
-  border:1px solid #e8dfc9;border-radius:16px;padding:20px 22px;
-  font-weight:700;font-size:15px}
-.staff-plan__icon{color:#237151;display:flex}
-.hero__panel{background:#fffdf6;border:1px solid #e8dfc9;border-radius:16px;
-  padding:28px;box-shadow:0 26px 52px -36px rgba(0,0,0,.45)}
-.panel__label{font-size:13px;letter-spacing:.14em;font-weight:700;
-  color:#237151;margin-bottom:14px}
-.panel__phone{display:flex;align-items:center;gap:12px;font-family:'Klee One', 'Hiragino Mincho ProN', serif;
-  font-size:clamp(24px,3vw,31px);font-weight:700;margin-bottom:18px;
-  white-space:nowrap}
-.panel__note{font-size:14px;color:#6b645d;margin-bottom:16px}
-.panel__actions{display:grid;gap:10px}
-.panel__actions .btn{width:100%}
-.hero__mosaic{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-.hero__cell{margin:0;overflow:hidden;border-radius:16px;background:#fbf3dc;
-  border:1px dashed #e8dfc9;display:flex;align-items:center;justify-content:center;
-  min-height:150px}
-.hero__cell:nth-child(4n+1),.hero__cell:nth-child(4n){grid-column:span 4}
-.hero__cell:nth-child(4n+2),.hero__cell:nth-child(4n+3){grid-column:span 2;
-  min-height:120px}
-.hero__cell img{width:100%;height:100%;object-fit:cover;border-radius:0;
-  aspect-ratio:auto}
-.hero--statement{background:#fffdf6;text-align:center;
-  padding:calc(76px + 36px) 0 calc(76px - 8px)}
-.hero--statement .hero__actions{justify-content:center}
-.hero--statement .hero__title{font-size:clamp(28px,4.6vw,52px);line-height:1.7;
-  letter-spacing:.12em}
-.hero--statement .hero__lead{max-width:34em;margin-inline:auto}
-.hero--statement .hero__figure{max-width:560px;margin:36px auto 0}
-.hero--editorial{background:#fffdf6;border-bottom:1px solid #e8dfc9}
-.hero--editorial .hero__kicker{background:transparent;border-radius:0;
-  padding:0 0 12px;display:block;border-bottom:1px solid #e8dfc9;
-  font-family:'Amatic SC', 'Comic Sans MS', cursive;letter-spacing:.18em}
-.hero--editorial .hero__title{font-size:clamp(34px,7.2vw,74px);line-height:1.16;
-  letter-spacing:-.01em}
-.hero--mosaic .hero__grid{grid-template-columns:.9fr 1.1fr;align-items:center}
-.hero--pricing .hero__grid{grid-template-columns:1.08fr .92fr}
-.hero--quiet{background:#fffdf6}
-.hero--quiet .hero__grid{grid-template-columns:.95fr 1.05fr;
-  min-height:clamp(420px,58vh,680px)}
-.hero__brand{font-family:'Klee One', 'Hiragino Mincho ProN', serif;font-size:clamp(30px,4.4vw,52px);
-  letter-spacing:.16em;line-height:1.4;margin-bottom:22px;
-  word-break:keep-all;overflow-wrap:break-word}
-.hero--quiet .hero__title{font-size:clamp(16px,1.9vw,20px);font-weight:400;
-  letter-spacing:.12em;line-height:2.2;margin-bottom:10px}
-.hero--quiet .hero__lead{font-size:14px;margin-bottom:22px}
-.hero--quiet .hero__figure img{aspect-ratio:3/4}
-.hero--words{background:#fffdf6;text-align:center;
-  padding:calc(76px + 48px) 0 calc(76px + 20px)}
-.hero--words .hero__title{font-size:clamp(28px,4.8vw,54px);line-height:1.9;
-  letter-spacing:.15em;max-width:24em;margin-inline:auto;margin-bottom:26px}
-.hero--words .hero__lead{max-width:32em;margin-inline:auto}
-.hero__sign{margin-top:36px;font-size:14px;letter-spacing:.24em;color:#6b645d}
-.hero__face{background:#267354;color:#fff;border-radius:16px;
-  aspect-ratio:4/3;display:grid;place-items:center;padding:28px;min-height:280px}
-.hero__face-name{font-family:'Klee One', 'Hiragino Mincho ProN', serif;font-size:clamp(22px,2.8vw,36px);
-  letter-spacing:.2em;line-height:1.8;text-align:center;margin:0;
-  word-break:keep-all;overflow-wrap:break-word}
-.hero--quiet .hero__face{aspect-ratio:3/4}
-.hero--booking{padding-bottom:0}
-.hero__band{margin:30px 0 0;width:100%}
-.hero__band img{display:block;width:100%;height:clamp(180px,26vw,300px);
-  object-fit:cover}
-.hero__band .hero__caption{padding:6px 24px 0;margin-top:0}
-.hero__strip{background:#267354;color:#fff;margin-top:30px}
-.hero__strip-in{display:flex;align-items:center;flex-wrap:wrap;gap:14px 26px;
-  padding-top:24px;padding-bottom:24px}
-.strip__label{font-size:13px;letter-spacing:.14em;margin:0}
-.strip__phone{display:inline-flex;align-items:center;gap:10px;color:#fff;
-  font-size:clamp(20px,2.4vw,27px);font-weight:700;text-decoration:none;
-  letter-spacing:.04em}
-.strip__actions{display:flex;gap:12px;flex-wrap:wrap;margin-left:auto}
-.strip__actions .btn--ghost{color:#fff;
-  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.72)}
-.hero--banner{background:#fffdf6;padding-bottom:56px}
-.hero__topline{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;
-  margin-bottom:22px}
-.hero--banner .hero__brand{font-size:clamp(19px,2.4vw,28px);letter-spacing:.2em;
-  margin-bottom:0}
-.hero--banner .hero__band{margin-top:0}
-.hero--banner .hero__band img{height:auto;aspect-ratio:2/1;max-height:460px}
-.hero__band--face{background:#267354;width:100%;aspect-ratio:21/9;
-  max-height:380px}
-.hero--banner .hero__title{margin-top:34px;font-size:clamp(24px,3.2vw,38px)}
-.hero--directory .hero__grid{grid-template-columns:1.15fr .85fr;
-  align-items:stretch;margin-top:28px}
-.hero--directory .hero__figure{height:100%;margin:0}
-.hero--directory .hero__figure img{height:100%;min-height:300px;object-fit:cover}
-.hero--directory .hero__face{height:100%;aspect-ratio:auto}
-.hero__dir{display:flex;flex-direction:column;border-top:1px solid #e8dfc9}
-.dir__row{flex:1;display:flex;align-items:center;gap:14px;padding:20px 6px;
-  border-bottom:1px solid #e8dfc9;text-decoration:none;color:#3c3835;min-height:64px}
-.dir__row::after{content:"→";font-family:'Amatic SC', 'Comic Sans MS', cursive;flex:none;margin-left:4px}
-.dir__ja{font-weight:600;letter-spacing:.06em}
-.dir__en{font-family:'Amatic SC', 'Comic Sans MS', cursive;font-size:12px;letter-spacing:.16em;
-  color:#6b645d;margin-left:auto}
-.dir__row--cta{background:#35a074;color:#14171c;border-bottom:0;
-  padding-inline:18px;border-radius:999px}
-.dir__row--cta .dir__en{color:inherit;opacity:.85}
-.mn-rows .rows{gap:12px}
-.rows--grand{gap:0}
-.rows--grand .row{background:transparent;border:0;border-bottom:1px solid #e8dfc9;
-  border-radius:0;padding:20px 6px}
-.rows--grand .row:first-child{border-top:2px solid #3c3835}
-.row--slot{min-height:58px}
-.row__value--slot{flex:0 1 170px;min-width:96px;align-self:center;
-  border-bottom:2px dotted #e8dfc9;height:1.05em}
-.mn-grand #menu h2{font-size:clamp(26px,4.4vw,40px)}
-.mn-grand #menu .row__name{font-size:16px}
-.mn-grand #menu .row__value{font-size:18px}
-.mn-compact #menu{padding:calc(76px * .55) 0}
-.mn-compact #menu .sec__head{margin-bottom:16px}
-.mn-compact #menu h2{font-size:18px}
-m-* の規則に勝つ */
-.mn-compact #menu .sec__eyebrow{font-size:13px}
-.mn-compact #menu .sec__head::before,
-.mn-compact #menu .sec__head::after{font-size:40px}
-.mn-compact #menu .rows{gap:0}
-.mn-compact #menu .row{background:transparent;border:0;
-  border-bottom:1px solid #e8dfc9;border-radius:0;padding:12px 4px;font-size:14px}
-.mn-compact #menu .row__value{font-size:14px}
-.mn-compact #menu .price-lead{background:transparent;border:1px solid #e8dfc9;
-  padding:18px 20px}
-.mn-compact #menu .price-lead__value{font-size:18px}
-.mn-compact #menu .price-note{font-size:13px}
-.h-engrand .sec__head{margin-bottom:32px}
-.h-engrand .sec__eyebrow{font-family:'Amatic SC', 'Comic Sans MS', cursive;font-weight:400;
-  font-size:clamp(34px,5.6vw,56px);letter-spacing:.05em;line-height:1.05;
-  color:#3c3835;margin-bottom:8px}
-.h-engrand .sec__head h2{font-size:15px;letter-spacing:.18em;color:#6b645d}
-.h-numbered{counter-reset:secno}
-.h-numbered .sec{counter-increment:secno}
-.h-numbered .sec__head{position:relative}
-.h-numbered .sec__head>*{position:relative}
-.h-numbered .sec__eyebrow::before{content:counter(secno,decimal-leading-zero) " ";
-  font-family:'Amatic SC', 'Comic Sans MS', cursive;letter-spacing:.06em}
-.h-numbered .sec__head::after{content:counter(secno,decimal-leading-zero);
-  position:absolute;right:0;top:-.38em;font-family:'Amatic SC', 'Comic Sans MS', cursive;font-weight:600;
-  font-size:clamp(64px,9vw,108px);line-height:1;color:#3c3835;opacity:.07;
-  pointer-events:none}
-.h-handmade .sec__head h2{display:inline;padding:0 .18em;
-  background-image:linear-gradient(transparent 64%,#f7f1ad 0);
-  -webkit-box-decoration-break:clone;box-decoration-break:clone}
-.h-handmade .sec__eyebrow{font-family:'Amatic SC', 'Comic Sans MS', cursive;font-size:21px;letter-spacing:.1em}
-.h-firstletter .sec__head h2::first-letter{color:#237151}
-.h-firstletter .hero__title::first-letter{color:#237151}
-.h-firstletter .hero--cover .hero__title::first-letter{color:#fff}
-.m-ghost .sec__head{position:relative;overflow:hidden;padding-top:26px}
-.m-ghost .sec__head>*{position:relative}
-.m-ghost .sec__head::before{content:attr(data-en);position:absolute;left:-.04em;
-  top:0;font-family:'Amatic SC', 'Comic Sans MS', cursive;font-size:clamp(58px,9vw,110px);line-height:.92;
-  font-weight:400;letter-spacing:.04em;color:#3c3835;opacity:.05;white-space:nowrap;
-  pointer-events:none}
-.m-corner .card,.m-corner .symptom,.m-corner .quote,.m-corner .person,
-.m-corner .gallery__slot,.m-corner .hero__panel,.m-corner .hero__figure img,
-.m-corner .gallery img{border-radius:0 26px 0 0}
-.m-marker .sec+.sec:not(.sec--panel){border-top:1px dotted #e8dfc9}
-.m-marker .card,.m-marker .symptom,.m-marker .row,.m-marker .quote,
-.m-marker .person,.m-marker .gallery__slot,
-.m-marker .staff-plan__item{border-style:dotted}
-.m-marker .step,.m-marker .qa__item{border-bottom-style:dotted}
-.m-marker .step:first-child{border-top-style:dotted}
-.m-marker .qa{border-top-style:dotted}
-.m-invert #contact,.cl-invert #contact{background:#fbf3dc;color:#3c3835}
-.m-invert #contact .sec__eyebrow,
-.cl-invert #contact .sec__eyebrow{color:#3c3835}
-.m-invert #contact .field input,.m-invert #contact .field textarea,
-.cl-invert #contact .field input,.cl-invert #contact .field textarea{
-  background:#fbf3dc;color:#3c3835}
-.m-invert #contact .form__note,
-.cl-invert #contact .form__note{color:inherit;opacity:.72}
-.m-invert #contact .btn--ghost,
-.cl-invert #contact .btn--ghost{color:#3c3835;
-  box-shadow:inset 0 0 0 1.5px #3c3835}
-.access-duo{display:grid;grid-template-columns:1fr 1fr;gap:30px;
-  align-items:stretch}
-.access-duo .info{grid-template-columns:1fr;gap:22px}
-.access-duo .map{margin-top:0;height:100%}
-.access-duo .map iframe{height:100%;min-height:320px}
-.cl-mapfirst #contact .cta{background:transparent;color:#3c3835;border-radius:0;
-  border-top:1px solid #e8dfc9;border-bottom:1px solid #e8dfc9;padding:38px 20px}
-.cl-mapfirst #contact .cta .btn{background:#35a074;color:#14171c;
-  border-color:#35a074}
-.access-table{display:grid;grid-template-columns:130px 1fr;gap:16px 24px;
-  max-width:560px;margin:0 auto;border-top:1px solid #e8dfc9;padding-top:28px}
-.access-table dt{font-size:13px;letter-spacing:.14em;color:#6b645d;
-  padding-top:2px}
-.access-table dd{margin:0}
-.m-bands .sec--panel{background:#fbf3dc;color:#3c3835}
-.m-bands .sec--panel .sec__eyebrow{color:inherit}
-.m-bands .sec--panel .card,.m-bands .sec--panel .symptom,
-.m-bands .sec--panel .row,.m-bands .sec--panel .quote,
-.m-bands .sec--panel .person{color:#3c3835}
-.m-bands .sec--panel .price-note,.m-bands .sec--panel .qa__a{color:inherit}
-.m-bands .sec--panel .qa__mark{color:inherit}
-.m-bands .sec--panel .rows--grand .row,
-.m-bands .sec--panel .rows--grand .row__value,
-.m-bands .sec--panel .rows--grand .row__note{color:#3c3835}
-.m-bands .sec--panel .rows--grand .row:first-child{border-top-color:#3c3835}
-.g-diamond #gallery{overflow:hidden}
-.g-diamond .gallery{padding-inline:26px}
-.g-diamond .gallery__slot{transform:skewX(-8deg);border-radius:0;aspect-ratio:3/4}
-.g-diamond .gallery__slot>*{transform:skewX(8deg)}
-@media (min-width:760px){
-  .g-diamond .gallery{grid-template-columns:repeat(4,1fr);gap:18px}
-  
-  .g-magazine .gallery{grid-template-columns:repeat(6,1fr);gap:18px}
-  .g-magazine .gallery__slot{aspect-ratio:4/3}
-  .g-magazine .gallery>*:nth-child(5n+1){grid-column:span 6}
-  .g-magazine .gallery__slot:nth-child(5n+1){aspect-ratio:21/9}
-  .g-magazine .gallery>*:nth-child(5n+2),
-  .g-magazine .gallery>*:nth-child(5n+3){grid-column:span 3}
-  .g-magazine .gallery>*:nth-child(5n+4){grid-column:span 2}
-  .g-magazine .gallery>*:nth-child(5n){grid-column:span 4}
-  
-  .g-offset .gallery{grid-template-columns:repeat(2,1fr);gap:26px 34px}
-  .g-offset .gallery>*:nth-child(2n){margin-top:56px}
-  .g-offset .gallery__slot{aspect-ratio:3/4}
-}
-.dark .hero::after{content:"";position:absolute;inset:0;pointer-events:none;
-  opacity:.14;background-size:130px 130px;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='130' height='130'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='130' height='130' filter='url(%23g)' opacity='0.5'/></svg>")}
-.js .reveal{opacity:0;transform:translateY(18px)}
-.js .reveal.is-in{opacity:1;transform:none;
-  transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
-@media (prefers-reduced-motion:reduce){
-  .js .reveal{opacity:1;transform:none}
-  .btn:hover{transform:none}
-}
-@media (max-width:820px){
-  .hero--split .hero__grid{grid-template-columns:1fr}
-  .cta{padding:40px 24px}
-  .sec{padding:64px 0}
-  .hero{padding:56px 0 48px}
-  .facts__item+.facts__item{border-left:0;border-top:1px solid #e8dfc9}
-  .step{grid-template-columns:1fr;gap:12px}
-  
-  .hero--mosaic .hero__grid,.hero--pricing .hero__grid,
-  .hero--directory .hero__grid{grid-template-columns:1fr}
-  .hero--quiet .hero__grid{grid-template-columns:1fr;min-height:auto}
-  
-  .hero__strip-in{flex-direction:column;align-items:flex-start;gap:12px}
-  .strip__actions{margin-left:0}
-  .hero--banner .hero__band img{aspect-ratio:16/10}
-  .hero__band--face{aspect-ratio:16/10}
-  
-  .access-duo{grid-template-columns:1fr}
-  .access-duo .map iframe{height:300px}
-  
-  .hero--quiet .hero__figure img{aspect-ratio:16/10}
-  .hero__face,.hero--quiet .hero__face{aspect-ratio:16/10;min-height:180px}
-  .hero--words{padding:96px 0 72px}
-  .hero__mosaic{grid-template-columns:repeat(2,1fr)}
-  .hero__mosaic .hero__cell{grid-column:auto;min-height:110px}
-  .hero__mosaic .hero__cell:first-child{grid-column:span 2;min-height:150px}
-  
-  .g-diamond .gallery{grid-template-columns:repeat(2,1fr);gap:12px;
-    padding-inline:12px}
-  
-  .m-ghost .sec__head::before{font-size:52px}
-  .h-numbered .sec__head::after{font-size:56px}
-  .statement__text{line-height:2.1}
-  
-  #statement{padding:72px 0}
-}
-@media (min-width:821px){
-  .sticky{display:none}
-  body:has(.sticky){padding-bottom:0}
-  
-  .reserve-rail{display:block;position:sticky;top:0;z-index:70;background:#fffdf6;
-    border-bottom:1px solid #e8dfc9}
-  .reserve-rail__inner{display:flex;align-items:center;justify-content:space-between;
-    gap:18px;padding:10px 0}
-  .reserve-rail__name{font-family:'Klee One', 'Hiragino Mincho ProN', serif;letter-spacing:.18em;font-size:15px}
-  .reserve-rail__actions{display:flex;gap:10px}
-  .reserve-rail .btn{padding:9px 18px;font-size:14px}
-  
-  .h-vertical .sec>.reveal{display:grid;grid-template-columns:76px 1fr;
-    gap:0 34px;align-items:start}
-  .h-vertical .sec>.reveal>*:not(.sec__head){grid-column:2}
-  .h-vertical .sec>.reveal>.sec__head{grid-column:1;writing-mode:vertical-rl;
-    margin-bottom:0;min-height:210px}
-  .h-vertical .sec>.reveal>.sec__head h2{font-size:clamp(20px,2vw,25px);
-    letter-spacing:.3em}
-  .h-vertical .sec>.reveal>.sec__head .sec__eyebrow{margin:0 0 0 12px;
-    letter-spacing:.2em}
-  
-  .h-vertical .cards:has(> :last-child:nth-child(4)){
-    grid-template-columns:repeat(2,minmax(0,1fr))}
-  
-  .m-ghost.h-vertical .sec>.reveal>.sec__head::before{font-size:60px}
-  
-  .d-seijaku #statement .reveal{display:flex;justify-content:center}
-  .d-seijaku .statement__text{writing-mode:vertical-rl;max-height:460px;
-    min-height:300px;text-align:start;line-height:2.6}
-}</style><script>document.documentElement.classList.add('js');</script>
-  
-  
-  
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "テンポラネオ食堂", "address": {"@type": "PostalAddress", "streetAddress": "日本、〒167-0051 東京都杉並区荻窪５丁目１８−９ 杜ビル １階"}, "telephone": ""}</script>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "予約はしたほうがよいですか", "acceptedAnswer": {"@type": "Answer", "text": "ご予約いただければ、お席をお取りしたうえでお待ちできます。当日のご来店も、空き具合しだいでお受けします。"}}, {"@type": "Question", "name": "ひとりでも入れますか", "acceptedAnswer": {"@type": "Answer", "text": "おひとりでのご利用も承ります。静かに食べたい、短い時間で済ませたいといったご希望があれば、ご予約やご来店の際にお伝えください。"}}, {"@type": "Question", "name": "子ども連れでも大丈夫ですか", "acceptedAnswer": {"@type": "Answer", "text": "お子さま連れでのご来店については、人数とお子さまの年齢をお知らせください。お席のご用意ができるかをお調べして、お返事します。"}}, {"@type": "Question", "name": "お店の場所と、行ける時間帯を教えてください", "acceptedAnswer": {"@type": "Answer", "text": "所在地と営業時間は、このページの「所在地・営業時間・ご予約」の欄と、下の「アクセス」でご確認いただけます。定休日もあわせて記載しています。"}}]}</script>
+.vbar__link[aria-current]{background:#fff;color:#1c1c1c;font-weight:700;box-shadow:none}
+#contact{padding:72px 20px}
+#contact .narrow{max-width:560px;margin:0 auto}
+#contact .cta h2{font-size:24px;margin:0 0 12px}
+#contact .cta__body{margin:0 0 24px;line-height:1.9}
+#contact .cta__actions{margin:0 0 28px}
+#contact .form{display:grid;gap:18px;text-align:left}
+#contact .field{display:grid;gap:8px}
+#contact .field label{font-size:14px;font-weight:700}
+#contact .field input,#contact .field textarea{font:inherit;color:#1c1c1c;
+  background:#fff;border:1px solid rgba(0,0,0,.3);border-radius:6px;padding:12px 14px}
+#contact .field textarea{min-height:150px;resize:vertical}
+#contact .btn{display:inline-flex;align-items:center;gap:8px;font:inherit;
+  color:#fff;background:#1c1c1c;border:0;border-radius:6px;padding:14px 26px;
+  text-decoration:none;cursor:pointer}
+#contact .btn--ghost{color:#1c1c1c;background:transparent;
+  box-shadow:inset 0 0 0 1.5px #1c1c1c}
+#contact .ic{flex:none}
+#contact .form__note{font-size:12px;opacity:.7;margin:0}
+#contact .form__done{display:none}
+#privacy-policy{padding:56px 20px;font-size:13px;line-height:2}
+#privacy-policy .narrow{max-width:720px;margin:0 auto}
+#privacy-policy h2{font-size:18px;margin:0 0 16px}
+#privacy-policy h3{font-size:14px;margin:20px 0 6px}
+</style>
 </head>
 <body>
-<div class="lp t-concerns d-pop m-marker g-rounded h-handmade mn-rows cl-mapfirst">
-<nav class="vbar" aria-label="デザイン案の切り替え"><div class="wrap vbar__inner"><span class="vbar__note">エレノアがテンポラネオ食堂様へのご提案として作成した見本です。テンポラネオ食堂様ご自身が公開されているものではありません。</span><ul class="vbar__list"><li><a class="vbar__link" href="./" aria-current="page">1　お悩みから</a></li><li><a class="vbar__link" href="2/">2　料金明快</a></li><li><a class="vbar__link" href="3/">3　スタイル主役</a></li></ul></div></nav>
-<header class="hero hero--center" id="hero"><div class="wrap hero__grid"><div><span class="hero__kicker">飲食店・東京都杉並区荻窪</span><h1 class="hero__title">荻窪の食堂です。今日のごはんの場所に迷ったら、ここへ</h1><p class="hero__lead">テンポラネオ食堂は、お食事をお出ししている店です。お品書きと店内の様子は、このページの写真と一覧でご覧いただけます。人数や日にちのご相談は、ご予約・お問い合わせからお気軽にどうぞ。</p><div class="hero__actions"><a class="btn" href="#contact"><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4S19 15.2 19 10.4a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10.4" r="2.6"/></svg>問い合わせ先を見る</a></div><p class="hero__meta">日本、〒167-0051 東京都杉並区荻窪５丁目１８−９ 杜ビル １階</p></div><figure class="hero__figure"><img src="https://images.unsplash.com/photo-1676716244847-3fae1a2afb5b?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMGludGVyaW9yJTIwY296eSUyMHdhcm0lMjBzYWxvbiUyMHBsYW50c3xlbnwxfDB8fHwxNzg2NDU5NDkxfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="" loading="eager" width="1200" height="900"><figcaption class="hero__caption">※写真はイメージです</figcaption></figure></div></header>
-<section class="sec sec--panel" id="symptoms"><div class="wrap reveal"><div class="sec__head" data-en="CHECK"><span class="sec__eyebrow">CHECK</span><h2>こんなときに使える食堂です</h2></div><ul class="symptoms"><li class="symptom"><span class="symptom__icon"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.4l2.6 2.6 5.6-5.6"/></svg></span><span>外食が続くと飽きてしまい、落ち着いて食べられる店を探している</span></li><li class="symptom"><span class="symptom__icon"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.4l2.6 2.6 5.6-5.6"/></svg></span><span>ひとりで入れる店が少なく、昼休みに行く場所がいつも同じになる</span></li><li class="symptom"><span class="symptom__icon"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.4l2.6 2.6 5.6-5.6"/></svg></span><span>仕事帰りにゆっくり食事をしたいが、騒がしい店は避けたいと思っている</span></li><li class="symptom"><span class="symptom__icon"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.4l2.6 2.6 5.6-5.6"/></svg></span><span>はじめての店は、何を頼めばよいか分からず入りづらい</span></li><li class="symptom"><span class="symptom__icon"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.4l2.6 2.6 5.6-5.6"/></svg></span><span>家族や友人と、静かに話しながら食事ができる場所を探している</span></li></ul></div></section>
-<section class="sec" id="reasons"><div class="wrap reveal"><div class="sec__head" data-en="POINT"><span class="sec__eyebrow">POINT</span><h2>テンポラネオ食堂の考え方</h2></div><div class="cards"><article class="card"><div class="card__icon"><svg class="ic" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.4l2.6 2.6 5.6-5.6"/></svg></div><h3 class="card__title">先に決められます</h3><p class="card__body">どんな料理があるかは、ご来店前にこのページのお品書きでご確認いただけます。迷いやすい方も、頼むものを決めてから席につけます。</p></article><article class="card"><div class="card__icon"><svg class="ic" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4.8" width="18" height="12.4" rx="2.6"/><path d="M8.6 17.2v4l4.4-4"/></svg></div><h3 class="card__title">苦手はお伝えください</h3><p class="card__body">食べられないものやお控えになりたい食材があれば、ご予約の際にお知らせください。ご用意できるかを確かめたうえで、お返事します。</p></article><article class="card"><div class="card__icon"><svg class="ic" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8.4" r="3.6"/><path d="M4.8 20.2a7.2 7.2 0 0 1 14.4 0"/></svg></div><h3 class="card__title">人数のご相談</h3><p class="card__body">おひとりでも、何人かでのお集まりでも、席のご相談を承ります。日にちとおよその人数をお伝えいただければ、お受けできるかをお答えします。</p></article><article class="card"><div class="card__icon"><svg class="ic" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20.8 4.2 13a5.6 5.6 0 1 1 7.8-7.8 5.6 5.6 0 1 1 7.8 7.8Z"/></svg></div><h3 class="card__title">はじめての方へ</h3><p class="card__body">初めてで勝手が分からないときは、その旨をお伝えください。注文の仕方やお出しする順番など、その場でご案内します。</p></article></div></div></section>
-<section class="sec" id="flow"><div class="narrow reveal"><div class="sec__head" data-en="FLOW"><span class="sec__eyebrow">FLOW</span><h2>ご予約から当日まで</h2></div><ol class="steps"><li class="step"><span class="step__no">1</span><div><h3 class="step__title">ご連絡</h3><p class="step__body">ご希望の日にちと時間帯、人数をお知らせください。お問い合わせの窓口からご連絡いただけます。</p></div></li><li class="step"><span class="step__no">2</span><div><h3 class="step__title">ご相談</h3><p class="step__body">お席の空き具合をお調べして、お受けできるかをお返事します。あわせて、苦手な食材のご希望も伺います。</p></div></li><li class="step"><span class="step__no">3</span><div><h3 class="step__title">ご来店</h3><p class="step__body">当日はお名前をお伝えください。お席へご案内します。ご予定が変わったときは、分かった時点でご連絡いただけると助かります。</p></div></li><li class="step"><span class="step__no">4</span><div><h3 class="step__title">お食事</h3><p class="step__body">お出ししたものについて、量や味の感じ方はお気軽にお声がけください。追加のご注文もその場で承ります。</p></div></li></ol></div></section>
-<section class="sec" id="faq"><div class="narrow reveal"><div class="sec__head" data-en="FAQ"><span class="sec__eyebrow">FAQ</span><h2>よくあるご質問</h2></div><div class="qa"><div class="qa__item"><p class="qa__q"><span class="qa__mark">Q</span><span>予約はしたほうがよいですか</span></p><p class="qa__a"><span class="qa__mark">A</span><span>ご予約いただければ、お席をお取りしたうえでお待ちできます。当日のご来店も、空き具合しだいでお受けします。</span></p></div><div class="qa__item"><p class="qa__q"><span class="qa__mark">Q</span><span>ひとりでも入れますか</span></p><p class="qa__a"><span class="qa__mark">A</span><span>おひとりでのご利用も承ります。静かに食べたい、短い時間で済ませたいといったご希望があれば、ご予約やご来店の際にお伝えください。</span></p></div><div class="qa__item"><p class="qa__q"><span class="qa__mark">Q</span><span>子ども連れでも大丈夫ですか</span></p><p class="qa__a"><span class="qa__mark">A</span><span>お子さま連れでのご来店については、人数とお子さまの年齢をお知らせください。お席のご用意ができるかをお調べして、お返事します。</span></p></div><div class="qa__item"><p class="qa__q"><span class="qa__mark">Q</span><span>お店の場所と、行ける時間帯を教えてください</span></p><p class="qa__a"><span class="qa__mark">A</span><span>所在地と営業時間は、このページの「所在地・営業時間・ご予約」の欄と、下の「アクセス」でご確認いただけます。定休日もあわせて記載しています。</span></p></div></div></div></section>
-<section class="sec sec--panel" id="menu"><div class="narrow reveal"><div class="sec__head" data-en="MENU"><span class="sec__eyebrow">MENU</span><h2>メニュー・料金</h2></div><div class="price-lead"><p class="price-lead__label">料金について</p><p class="price-lead__value">お問い合わせください</p><div class="price-lead__actions"><a class="btn" href="#contact"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4S19 15.2 19 10.4a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10.4" r="2.6"/></svg>問い合わせ先を見る</a></div></div><p class="price-note">ここにテンポラネオ食堂様の料金表を掲載します。</p><p class="price-note">お品書きは下記のとおりです。載っていないご希望や、人数に合わせたご相談は、お問い合わせから承ります。</p></div></section>
-<section class="sec" id="access"><div class="wrap reveal"><div class="sec__head" data-en="ACCESS"><span class="sec__eyebrow">ACCESS</span><h2>アクセス・営業時間</h2></div><dl class="access-table"><dt>所在地</dt><dd class="info__hours">日本、〒167-0051 東京都杉並区荻窪５丁目１８−９ 杜ビル １階</dd><dt>営業時間</dt><dd class="info__hours">月曜日: 12時00分～14時30分, 17時30分～20時00分
-火曜日: 12時00分～14時30分, 17時30分～20時00分
-水曜日: 定休日
-木曜日: 12時00分～14時30分, 17時30分～20時00分
-金曜日: 12時00分～14時30分, 17時30分～20時00分
-土曜日: 12時00分～14時30分, 17時30分～20時00分
-日曜日: 12時00分～14時30分, 17時30分～20時00分</dd></dl><p class="map-link"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92167-0051%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%9D%89%E4%B8%A6%E5%8C%BA%E8%8D%BB%E7%AA%AA%EF%BC%95%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%98%E2%88%92%EF%BC%99%20%E6%9D%9C%E3%83%93%E3%83%AB%20%EF%BC%91%E9%9A%8E" target="_blank" rel="noopener noreferrer"><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4S19 15.2 19 10.4a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10.4" r="2.6"/></svg><span>Googleマップで場所を見る</span></a></p></div></section>
-<section class="sec" id="contact"><div class="narrow reveal"><div class="cta"><h2>今日のごはんに、この店を</h2><p class="cta__body">日にちと人数が決まりましたら、ご予約・お問い合わせからお知らせください。当日のご来店についても、まずはご相談ください。</p></div><div class="hero__actions"><a class="btn btn--ghost" href="mailto:barchetta1999meguro@gmail.com"><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5.4" width="18" height="13.2" rx="2.4"/><path d="M3.6 7.2 12 13.2l8.4-6"/></svg>メールで問い合わせる</a></div></div></section>
-<div class="sticky" role="complementary" aria-label="予約導線"><div class="sticky__inner"><a class="btn" href="#contact"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4S19 15.2 19 10.4a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10.4" r="2.6"/></svg>連絡先</a></div></div>
-<script>
-(function(){
-  var els=document.querySelectorAll('.reveal');
-  function showAll(){for(var i=0;i<els.length;i++)els[i].classList.add('is-in');}
-  setTimeout(showAll,3000);
-  try{
-    if(!('IntersectionObserver' in window)){showAll();return;}
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}
-      });
-    },{rootMargin:'0px 0px -8% 0px',threshold:0.08});
-    for(var i=0;i<els.length;i++)io.observe(els[i]);
-  }catch(err){showAll();}
-})();
-</script>
+<nav class="vbar" aria-label="デザイン案の切り替え"><div class="wrap vbar__inner"><span class="vbar__note">エレノアがテンポラネオ食堂様へのご提案として作成した見本です。テンポラネオ食堂様ご自身が公開されているものではありません。</span><ul class="vbar__list"><li><a class="vbar__link" href="./" aria-current="page">1　誠実な開示</a></li><li><a class="vbar__link" href="2/">2　静かな信頼</a></li><li><a class="vbar__link" href="3/">3　作品で選ぶ（リッチプラン専用デザイン）</a></li></ul></div></nav>
+
+<header>
+  <span class="brand">
+    <span class="seal" aria-hidden="true">食</span>
+    <span class="brand__name">
+      テンポラネオ食堂
+      <span class="brand__en">TEMPORANEO SHOKUDO</span>
+    </span>
+  </span>
+  <nav>
+    <a href="#menu">お品書き</a>
+    <a href="#beans">豆のこと</a>
+    <a href="#about">この店について</a>
+    <a href="#access">アクセス</a>
+    <a class="btn-key" href="#reserve">ご予約</a>
+  </nav>
+</header>
+
+<main>
+
+  
+  <div class="hero">
+    <div class="hero__inner">
+      <div class="hero__photo ph"><img src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8M3x8cmVzdGF1cmFudCUyMGludGVyaW9yfGVufDF8MHx8fDE3ODY3MzEzNTR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="店内の空気が分かる写真（人物なしで可）" loading="eager" fetchpriority="high" decoding="async"></div>
+      <h1 class="hero__copy">
+        <span class="ln"><span class="np">昼も、</span><span class="np">夜も、</span></span><span class="ln"><span class="np">いつもの食堂の</span><span class="np">味で</span></span><span class="ln"><span class="np">お待ちしています。</span></span>
+      </h1>
+      <p class="hero__where">
+        <span class="np">東京都杉並区・荻窪の食堂</span><span class="np">昼と夜、</span><span class="np">毎日のごはんの店です</span>
+      </p>
+      <div class="hero__desk">
+        <dl>
+          <dt>本日</dt>
+          <dd>12:00〜14:30, 17:30〜20:00</dd>
+        </dl>
+        <dl>
+          <dt>お電話</dt>
+          <dd class="tel"></dd>
+        </dl>
+        <a class="btn-key" href="#reserve">席のご予約</a>
+      </div>
+    </div>
+  </div>
+
+  
+  <section id="menu" class="band">
+    <div class="band__inner">
+      <div class="hd">
+        <span class="hd__en">MENU</span>
+        <h2><span class="np">お食事</span><span class="np">メニュー</span></h2>
+      </div>
+      <p class="lead">
+        <span class="np">定食を中心にした</span><span class="np">食堂のメニューです。</span><span class="np">よく出る顔ぶれを</span><span class="np">写真とともに</span><span class="np">ご紹介します。</span><span class="np">価格は店頭にてご案内します。</span>
+      </p>
+
+      <p class="grp">定食</p>
+      <ul class="rows">
+        <li class="row">
+          <span class="row__name">
+            焼き魚定食
+            <span class="row__note"><span class="np">香ばしく焼いた魚を</span><span class="np">ご飯と味噌汁とともに。</span><span class="np">食堂の定番です。</span></span>
+          </span>
+          <span class="row__pr"></span>
+        </li>
+        <li class="row">
+          <span class="row__name">
+            生姜焼き定食
+            <span class="row__note"><span class="np">豚肉と玉ねぎを</span><span class="np">生姜だれで炒めて。</span><span class="np">ご飯が進む一皿です。</span></span>
+          </span>
+          <span class="row__pr"></span>
+        </li>
+        <li class="row">
+          <span class="row__name">
+            唐揚げ定食
+            <span class="row__note"><span class="np">外はかりっと、</span><span class="np">中はやわらかく。</span><span class="np">食べ応えのある一皿です。</span></span>
+          </span>
+          <span class="row__pr"></span>
+        </li>
+        <li class="row">
+          <span class="row__name">
+            ハンバーグ定食
+            <span class="row__note"><span class="np">ふっくらと焼き上げるハンバーグ。</span><span class="np">ご飯に合う洋風のおかずです。</span></span>
+          </span>
+          <span class="row__pr"></span>
+        </li>
+        <li class="row">
+          <span class="row__name">
+            野菜炒め定食
+            <span class="row__note"><span class="np">野菜をたっぷり使った炒めもの。</span><span class="np">軽めに済ませたい日にもどうぞ。</span></span>
+          </span>
+          <span class="row__pr"></span>
+        </li>
+        <li class="row">
+          <span class="row__name">
+            日替わり定食
+            <span class="row__note"><span class="np">その日のおすすめを一皿に。</span><span class="np">内容は店頭にて</span><span class="np">ご案内します。</span></span>
+          </span>
+          <span class="row__pr"></span>
+        </li>
+      </ul>
+
+      <p class="grp">ご飯もの・汁もの</p>
+      <ul class="rows">
+        <li class="row">
+          <span class="row__name">
+            カレーライス
+            <span class="row__note"><span class="np">食堂の定番カレー。</span><span class="np">昼どきに手早く</span><span class="np">済ませたい方にもどうぞ。</span></span>
+          </span>
+          <span class="row__pr"></span>
+        </li>
+        <li class="row">
+          <span class="row__name">
+            親子丼
+            <span class="row__note"><span class="np">卵でとじた鶏肉をご飯にのせた、</span><span class="np">気軽に頼みやすい丼ものです。</span></span>
+          </span>
+          <span class="row__pr"></span>
+        </li>
+        <li class="row">
+          <span class="row__name">
+            豚汁
+            <span class="row__note"><span class="np">野菜と豚肉を合わせた、</span><span class="np">具だくさんの汁ものです。</span></span>
+          </span>
+          <span class="row__pr"></span>
+        </li>
+      </ul>
+
+      
+      <div class="honest">
+        <h3><span class="np">追加できるものと</span><span class="np">料金のご案内</span></h3>
+        <p class="note-s">
+          <span class="np">大盛りや小鉢の追加など、</span><span class="np">店頭で気軽にご相談ください。</span>
+        </p>
+        <dl>
+          <div>
+            <dt>ご飯の大盛り</dt>
+            <dd>店頭にてご案内</dd>
+          </div>
+          <div>
+            <dt>小鉢の追加</dt>
+            <dd>店頭にてご案内</dd>
+          </div>
+          <div>
+            <dt>食後のコーヒー</dt>
+            <dd class="free">店頭にてご案内</dd>
+          </div>
+          <div>
+            <dt>おかずの単品注文</dt>
+            <dd class="free">店頭にてご案内</dd>
+          </div>
+          <div>
+            <dt>お飲み物の追加</dt>
+            <dd class="free">店頭にてご案内</dd>
+          </div>
+        </dl>
+      </div>
+
+      <p class="menu-note">
+        <span class="np">価格はすべて</span><span class="np">店頭のメニュー表で</span><span class="np">ご案内しています。</span><span class="np">お支払い方法も店頭でご確認ください。</span>
+      </p>
+    </div>
+  </section>
+
+  
+  <section id="beans" class="band">
+    <div class="band__inner">
+      <div class="hd">
+        <span class="hd__en">DRINK</span>
+        <h2><span class="np">食後の</span><span class="np">お飲み物</span></h2>
+      </div>
+      <p class="lead">
+        <span class="np">定食のあとの一杯や、</span><span class="np">ひと休みにどうぞ。</span><span class="np">お飲み物は</span><span class="np">昼と夜、</span><span class="np">どちらの時間でも</span><span class="np">ご注文いただけます。</span>
+      </p>
+      <ul class="beans">
+        <li class="bean">
+          <span class="bean__no">01</span>
+          <span class="bean__body">
+            <span class="bean__name">コーヒー</span>
+            <span class="bean__meta">食後の一杯に</span>
+            <span class="bean__desc"><span class="np">昼のあとにも</span><span class="np">夜のしめにも。</span><span class="np">香りを楽しみながら</span><span class="np">ゆっくりどうぞ。</span></span>
+          </span>
+          <span class="bean__pr">店頭にてご案内</span>
+        </li>
+        <li class="bean">
+          <span class="bean__no">02</span>
+          <span class="bean__body">
+            <span class="bean__name">紅茶</span>
+            <span class="bean__meta">ひと休みに</span>
+            <span class="bean__desc"><span class="np">すっきりとした飲み口で、</span><span class="np">甘いものとの</span><span class="np">相性も良い</span><span class="np">一杯です。</span></span>
+          </span>
+          <span class="bean__pr">店頭にてご案内</span>
+        </li>
+        <li class="bean">
+          <span class="bean__no">03</span>
+          <span class="bean__body">
+            <span class="bean__name">ウーロン茶</span>
+            <span class="bean__meta">食事中の一杯に</span>
+            <span class="bean__desc"><span class="np">油を使ったおかずとも</span><span class="np">合わせやすい、</span><span class="np">定番のお茶です。</span></span>
+          </span>
+          <span class="bean__pr">店頭にてご案内</span>
+        </li>
+        <li class="bean">
+          <span class="bean__no">04</span>
+          <span class="bean__body">
+            <span class="bean__name">オレンジジュース</span>
+            <span class="bean__meta">お子さまにも</span>
+            <span class="bean__desc"><span class="np">さっぱりとした甘さで、</span><span class="np">どなたにも</span><span class="np">選びやすい</span><span class="np">味わいです。</span></span>
+          </span>
+          <span class="bean__pr">店頭にてご案内</span>
+        </li>
+        <li class="bean">
+          <span class="bean__no">05</span>
+          <span class="bean__body">
+            <span class="bean__name">コーラ</span>
+            <span class="bean__meta">揚げものと一緒に</span>
+            <span class="bean__desc"><span class="np">しっかりした味の</span><span class="np">おかずと合わせたい、</span><span class="np">冷たい炭酸飲料です。</span></span>
+          </span>
+          <span class="bean__pr">店頭にてご案内</span>
+        </li>
+      </ul>
+      <p class="note-s">
+        <span class="np">お飲み物の種類と価格は、</span><span class="np">店頭のメニュー表にて</span><span class="np">ご案内しています。</span>
+      </p>
+    </div>
+  </section>
+
+  
+  <section id="reserve" class="band reserve">
+    <div class="band__inner">
+      <div class="hd">
+        <span class="hd__en">RESERVATION</span>
+        <h2><span class="np">ご予約・</span><span class="np">お問い合わせ</span></h2>
+      </div>
+      <div class="ways">
+        <div class="way">
+          <span class="way__label">ご来店</span>
+          <a class="way__value" href="tel:0300000000"></a>
+          <p class="way__note">
+            <span class="np">ご予約なしでも</span><span class="np">ご利用いただけます。</span><span class="np">混み合う時間帯はお待ちいただく</span><span class="np">ことがあります。</span>
+          </p>
+        </div>
+        <div class="way">
+          <span class="way__label">メールでのご予約</span>
+          <a class="btn-key" href="#contact">メールでご予約・お問い合わせ</a>
+          <p class="way__note">
+            <span class="np">ご希望の日時と人数を</span><span class="np">お書き添えください。</span><span class="np">確認のうえ、</span><span class="np">順にお返事いたします。</span>
+          </p>
+        </div>
+      </div>
+      <ul class="promise">
+        <li><span class="np">昼は12時から14時30分、</span><span class="np">夜は17時30分から20時まで。</span><span class="np">水曜日を除く</span><span class="np">毎日</span><span class="np">営業しています。</span></li>
+        <li><span class="np">メールでいただいたご質問には、</span><span class="np">内容を確認のうえ、</span><span class="np">できるだけ分かりやすく</span><span class="np">お返事いたします。</span></li>
+        <li><span class="np">当日の席の空き状況や</span><span class="np">ご予約のご相談も、</span><span class="np">メールでお気軽にお尋ねください。</span></li>
+      </ul>
+    </div>
+  </section>
+<section class="sec" id="contact"><div class="narrow reveal"><div class="cta"><h2>ご予約・お問い合わせ</h2><p class="cta__body">ご相談・お見積りは無料です。お気軽にご連絡ください。</p></div><div class="hero__actions"><a class="btn btn--ghost" href="mailto:barchetta1999meguro@gmail.com"><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5.4" width="18" height="13.2" rx="2.4"/><path d="M3.6 7.2 12 13.2l8.4-6"/></svg>メールで問い合わせる</a></div></div></section>
+
+  
+  <section id="about" class="band">
+    <div class="band__inner">
+      <div class="hd">
+        <span class="hd__en">ABOUT</span>
+        <h2><span class="np">大切に</span><span class="np">していること</span></h2>
+      </div>
+      <p class="lead">
+        <span class="np">荻窪の街の一角で、</span><span class="np">昼も夜も</span><span class="np">気軽に立ち寄れる</span><span class="np">食堂でありたいと</span><span class="np">考えています。</span><span class="np">特別な日のごちそうではなく、</span><span class="np">いつもの一食をきちんとおいしく。</span><span class="np">その積み重ねを大切にしています。</span>
+      </p>
+      <div class="pledges">
+        <div class="pledge">
+          <span class="pledge__no">一</span>
+          <h3><span class="np">毎日の</span><span class="np">ごはんのために</span></h3>
+          <p><span class="np">構えずに入れて、</span><span class="np">きちんと満足できる。</span><span class="np">そんな食事の時間を目指しています。</span></p>
+        </div>
+        <div class="pledge">
+          <span class="pledge__no">二</span>
+          <h3><span class="np">昼と夜の</span><span class="np">二つの顔</span></h3>
+          <p><span class="np">お昼は手早く、</span><span class="np">夜はゆっくりと。</span><span class="np">時間帯に合わせて</span><span class="np">お過ごしいただけます。</span></p>
+        </div>
+        <div class="pledge">
+          <span class="pledge__no">三</span>
+          <h3><span class="np">おひとりさまも歓迎</span></h3>
+          <p><span class="np">お一人でのお食事も</span><span class="np">気兼ねなくどうぞ。</span><span class="np">短い時間でも、</span><span class="np">ゆっくりでも。</span></p>
+        </div>
+        <div class="pledge">
+          <span class="pledge__no">四</span>
+          <h3><span class="np">荻窪の</span><span class="np">暮らしのそばに</span></h3>
+          <p><span class="np">近所の方の日常の一食に</span><span class="np">選んでいただける店で</span><span class="np">あり続けたいと考えています。</span></p>
+        </div>
+      </div>
+      <div class="strip">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1494346480775-936a9f0d0877?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8NHx8cmVzdGF1cmFudCUyMGludGVyaW9yfGVufDF8MHx8fDE3ODY3MzEzNTR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="店内" loading="lazy" decoding="async"></div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1595238734477-ae7f8a79ce02?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMGhhbmRzJTIwY2xvc2V1cHxlbnwxfDB8fHwxNzg2NzMxMzU0fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="手元" loading="lazy" decoding="async"></div>
+        <div class="ph"><img src="https://images.unsplash.com/photo-1651440204296-a79fa9988007?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8NHx8cmVzdGF1cmFudCUyMHByb2R1Y3R8ZW58MXwwfHx8MTc4NjczMTM1NXww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="商品" loading="lazy" decoding="async"></div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="person" class="band">
+    <div class="band__inner">
+      <div class="hd">
+        <span class="hd__en">PROFILE</span>
+        <h2><span class="np">店主とお店のこと</span></h2>
+      </div>
+      <div class="person">
+        <div class="person__photo ph"><img src="https://images.unsplash.com/photo-1657872294095-18bcbb865abf?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8M3x8cmVzdGF1cmFudCUyMHBvcnRyYWl0fGVufDF8MXx8fDE3ODY3MzEzNTd8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="店主（作業中の横顔で可）" loading="lazy" decoding="async"></div>
+        <div class="person__body">
+          <p class="person__name">
+            店主
+            <span class="person__role">テンポラネオ食堂</span>
+          </p>
+          <dl>
+            <div>
+              <dt>屋号</dt>
+              <dd><span class="np">テンポラネオ食堂</span><span class="np">（飲食店）</span></dd>
+            </div>
+            <div>
+              <dt>営業時間</dt>
+              <dd><span class="np">昼 12:00〜14:30</span><span class="np">夜 17:30〜20:00</span><span class="np">（営業日共通）</span></dd>
+            </div>
+            <div>
+              <dt>定休日</dt>
+              <dd><span class="np">毎週水曜日</span><span class="np">（そのほかの曜日は営業）</span></dd>
+            </div>
+            <div>
+              <dt>所在地</dt>
+              <dd><span class="np">東京都杉並区荻窪</span><span class="np">詳しい場所は</span><span class="np">下の地図でご確認ください</span></dd>
+            </div>
+            <div>
+              <dt>ご予約・お問い合わせ</dt>
+              <dd><span class="np">メールで承ります。</span><span class="np">このページのボタンから</span><span class="np">お送りください。</span></dd>
+            </div>
+            <div>
+              <dt>ご来店について</dt>
+              <dd><span class="np">ご予約なしでも</span><span class="np">ご利用いただけます。</span></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="access" class="band">
+    <div class="band__inner">
+      <div class="hd">
+        <span class="hd__en">ACCESS</span>
+        <h2><span class="np">店舗情報と</span><span class="np">アクセス</span></h2>
+      </div>
+      <div class="access">
+        <div class="access__body">
+          <dl>
+            <div><dt>住所</dt><dd>東京都杉並区荻窪５丁目１８−９ 杜ビル １階</dd></div>
+            <div><dt>電話</dt><dd></dd></div>
+            <div><dt>営業時間</dt><dd>12:00〜14:30, 17:30〜20:00</dd></div>
+            <div><dt>定休日</dt><dd>水曜定休</dd></div>
+            <div><dt>最寄り</dt><dd></dd></div>
+            <div><dt>席数</dt><dd>店内のお席・設備は、お気軽にお問い合わせください</dd></div>
+            <div><dt>そのほか</dt><dd><span class="np">喫煙の可否やWi-Fi、</span><span class="np">お子さま連れでのご利用など、</span><span class="np">気になる点は</span><span class="np">ご来店前にメールで</span><span class="np">ご確認いただけます。</span></dd></div>
+          </dl>
+        </div>
+        <div class="ph"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span class="brand">
+    <span class="seal" aria-hidden="true">食</span>
+    <span class="brand__name">
+      テンポラネオ食堂
+      <span class="brand__en">TEMPORANEO SHOKUDO</span>
+    </span>
+  </span>
+  <p>
+    東京都杉並区荻窪５丁目１８−９ 杜ビル １階<br>12:00〜14:30, 17:30〜20:00
+  </p>
+  <div class="sns">
+    <a href="#contact" aria-label="Instagram">Ig</a>
+    <a href="#contact" aria-label="X">X</a>
+    <a href="#contact" aria-label="LINE">Ln</a>
+  </div>
+  <small>© TEMPORANEO SHOKUDO</small>
+</footer>
+
+<div class="sp-bar">
+  <a href="tel:0300000000">電話する</a>
+  <a href="#reserve">席を予約</a>
 </div>
+
+<script>
+</script>
+<p class="photo-credit" style="font-size:11px;text-align:center;padding:12px 16px;margin:0">Photo by <a href="https://unsplash.com/@louishansel?utm_source=Eleanor+LP+Studio&utm_medium=referral" target="_blank" rel="noopener">Louis Hansel</a>、<a href="https://unsplash.com/@nhillier?utm_source=Eleanor+LP+Studio&utm_medium=referral" target="_blank" rel="noopener">Nick Hillier</a>、<a href="https://unsplash.com/@juliusyls?utm_source=Eleanor+LP+Studio&utm_medium=referral" target="_blank" rel="noopener">Julius Yls</a>、<a href="https://unsplash.com/@reddfrancisco?utm_source=Eleanor+LP+Studio&utm_medium=referral" target="_blank" rel="noopener">Redd Francisco</a>、<a href="https://unsplash.com/@aadarshamaharjan?utm_source=Eleanor+LP+Studio&utm_medium=referral" target="_blank" rel="noopener">Aadarsha Maharjan</a> on <a href="https://unsplash.com/?utm_source=Eleanor+LP+Studio&utm_medium=referral" target="_blank" rel="noopener">Unsplash</a></p>
 <section id="privacy-policy" class="legal">
   <div class="narrow">
     <h2>プライバシーポリシー</h2>
