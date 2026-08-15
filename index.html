@@ -343,6 +343,10 @@ nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !imp
 #contact .ic{flex:none}
 #contact .form__note{font-size:12px;opacity:.7;margin:0}
 #contact .form__done{display:none}
+/* 値の入らなかった任意欄は行ごと畳む（テンプレの「無ければ行ごと削る」の実装。
+   :has() 非対応のブラウザでは従来どおり空欄が残るだけで、悪化はしない） */
+dd:empty{display:none !important}
+div:has(> dd:empty){display:none !important}
 #privacy-policy{padding:56px 20px;font-size:13px;line-height:2}
 #privacy-policy .narrow{max-width:720px;margin:0 auto}
 #privacy-policy h2{font-size:18px;margin:0 0 16px}
@@ -376,10 +380,10 @@ nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !imp
     <div class="hero__inner">
       <div class="hero__photo ph"><img src="https://images.unsplash.com/photo-1538333581680-29dd4752ddf2?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8N3x8cmVzdGF1cmFudCUyMGludGVyaW9yfGVufDF8MHx8fDE3ODY3NjMyMDZ8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="店内の空気が分かる写真（人物なしで可）" loading="eager" fetchpriority="high" decoding="async"></div>
       <h1 class="hero__copy">
-        <span class="ln"><span class="np">昼も、</span><span class="np">夜も。</span></span><span class="ln"><span class="np">荻窪の</span><span class="np">まちの食堂で、</span></span><span class="ln"><span class="np">いつもの</span><span class="np">一食を。</span></span>
+        <span class="ln"><span class="np">おいしいごはんを、</span></span><span class="ln"><span class="np">まいにちの</span><span class="np">そばに。</span></span><span class="ln"><span class="np">荻窪の</span><span class="np">食堂です。</span></span>
       </h1>
       <p class="hero__where">
-        <span class="np">東京都杉並区荻窪にある、</span><span class="np">昼と夜どちらも営業する</span><span class="np">食堂です。</span>
+        <span class="np">東京都杉並区荻窪</span><span class="np">定食とごはんものの食堂</span><span class="np">昼と夜に営業しています</span>
       </p>
       <div class="hero__desk">
         <dl>
@@ -388,7 +392,7 @@ nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !imp
         </dl>
         <dl>
           <dt>お電話</dt>
-          <dd class="tel"></dd>
+          <dd class="tel">—</dd>
         </dl>
         <a class="btn-key" href="#reserve">席のご予約</a>
       </div>
@@ -399,79 +403,79 @@ nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !imp
   <section id="menu" class="band">
     <div class="band__inner">
       <div class="hd">
-        <span class="hd__en">Menu</span>
-        <h2><span class="np">メニューの</span><span class="np">ご案内</span></h2>
+        <span class="hd__en">MENU</span>
+        <h2><span class="np">当店の</span><span class="np">お品書き</span></h2>
       </div>
       <p class="lead">
-        <span class="np">定食や丼もの、</span><span class="np">麺類などの</span><span class="np">ふだんのごはんを、</span><span class="np">昼と夜の</span><span class="np">二つの時間帯で</span><span class="np">ご用意しています。</span>
+        <span class="np">定食を中心とした、</span><span class="np">日々のごはんの</span><span class="np">お品書きです。</span><span class="np">料理の写真とあわせて</span><span class="np">ご覧ください。</span><span class="np">価格は店内でご案内しています。</span>
       </p>
 
-      <p class="grp">お食事</p>
+      <p class="grp">定食・ごはんもの</p>
       <ul class="rows">
         <li class="row">
           <span class="row__name">
-            定食
-            <span class="row__note"><span class="np">毎日の食事の</span><span class="np">中心になる、</span><span class="np">食堂の定番の形です。</span></span>
+            日替わり定食
+            <span class="row__note"><span class="np">その日の仕入れにあわせて</span><span class="np">内容が変わる、</span><span class="np">定番の一品です。</span></span>
           </span>
           <span class="row__pr">—</span>
         </li>
         <li class="row">
           <span class="row__name">
-            丼もの
-            <span class="row__note"><span class="np">ごはんの上に</span><span class="np">おかずをのせて、</span><span class="np">ひと皿で手早く楽しめます。</span></span>
+            焼き魚定食
+            <span class="row__note"><span class="np">ごはんと味噌汁、</span><span class="np">小鉢を添えた</span><span class="np">昔ながらの組み合わせです。</span></span>
+          </span>
+          <span class="row__pr">—</span>
+        </li>
+        <li class="row">
+          <span class="row__name">
+            生姜焼き定食
+            <span class="row__note"><span class="np">ごはんの進む</span><span class="np">甘辛い味付けの、</span><span class="np">定食の定番です。</span></span>
+          </span>
+          <span class="row__pr">—</span>
+        </li>
+        <li class="row">
+          <span class="row__name">
+            唐揚げ定食
+            <span class="row__note"><span class="np">揚げたてを、</span><span class="np">ごはんと味噌汁とあわせてどうぞ。</span></span>
           </span>
           <span class="row__pr">—</span>
         </li>
         <li class="row">
           <span class="row__name">
             カレーライス
-            <span class="row__note"><span class="np">世代を問わず</span><span class="np">親しまれている、</span><span class="np">食堂の定番メニューです。</span></span>
+            <span class="row__note"><span class="np">食堂の定番、</span><span class="np">飽きのこない味わいのカレーです。</span></span>
           </span>
           <span class="row__pr">—</span>
         </li>
         <li class="row">
           <span class="row__name">
-            麺類
-            <span class="row__note"><span class="np">するっと食べられる、</span><span class="np">軽めのお昼にも合う一品です。</span></span>
-          </span>
-          <span class="row__pr">—</span>
-        </li>
-        <li class="row">
-          <span class="row__name">
-            一品料理
-            <span class="row__note"><span class="np">もう少し食べたいときに、</span><span class="np">組み合わせて楽しめます。</span></span>
-          </span>
-          <span class="row__pr">—</span>
-        </li>
-        <li class="row">
-          <span class="row__name">
-            小鉢
-            <span class="row__note"><span class="np">定食にもう一品、</span><span class="np">小さなおかずを</span><span class="np">添えたいときにどうぞ。</span></span>
+            親子丼
+            <span class="row__note"><span class="np">ふんわり卵で仕上げる、</span><span class="np">ごはんものの</span><span class="np">定番メニューです。</span></span>
           </span>
           <span class="row__pr">—</span>
         </li>
       </ul>
 
-      <p class="grp">お飲みもの・デザート</p>
+      <p class="grp">一品・小鉢</p>
       <ul class="rows">
         <li class="row">
           <span class="row__name">
-            ソフトドリンク
-            <span class="row__note"><span class="np">お食事と一緒に、</span><span class="np">さっぱりとした</span><span class="np">飲みものをどうぞ。</span></span>
+            冷奴
+            <span class="row__note"><span class="np">定食にもう一品</span><span class="np">足したいときに</span><span class="np">ちょうどよい小鉢です。</span></span>
           </span>
           <span class="row__pr">—</span>
         </li>
         <li class="row">
           <span class="row__name">
-            コーヒー・お茶
-            <span class="row__note"><span class="np">食後のひとときを、</span><span class="np">ゆっくり過ごしたいときに。</span></span>
+            ポテトサラダ
+            <span class="row__note"><span class="np">定食と一緒に、</span><span class="np">もう一皿ほしいときの一品です。</span></span>
           </span>
           <span class="row__pr">—</span>
         </li>
         <li class="row">
           <span class="row__name">
-            デザート
-            <span class="row__note"><span class="np">食事の最後に、</span><span class="np">小さな甘いお楽しみをどうぞ。</span></span>
+            おひたし
+            <span class="row__note"><span class="np">季節の野菜で作る、</span><span class="np">さっぱりとした小鉢です。</span></span>
           </span>
           <span class="row__pr">—</span>
         </li>
@@ -479,36 +483,36 @@ nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !imp
 
       
       <div class="honest">
-        <h3><span class="np">メニューと価格の</span><span class="np">ご確認について</span></h3>
+        <h3><span class="np">ご飯の量・追加の</span><span class="np">ご注文について</span></h3>
         <p class="note-s">
-          <span class="np">最新の価格は、</span><span class="np">店頭のメニューでご確認ください。</span>
+          <span class="np">量の調整や追加のご注文も、</span><span class="np">お気軽にお声がけください。</span>
         </p>
         <dl>
           <div>
-            <dt>ごはんの大盛り</dt>
-            <dd>店頭にてご案内</dd>
-          </div>
-          <div>
-            <dt>おかずの追加</dt>
+            <dt>ご飯 大盛り</dt>
             <dd>店頭にてご案内</dd>
           </div>
           <div>
             <dt>小鉢の追加</dt>
+            <dd>店頭にてご案内</dd>
+          </div>
+          <div>
+            <dt>味噌汁の追加</dt>
             <dd class="free">店頭にてご案内</dd>
           </div>
           <div>
-            <dt>お飲みものの追加</dt>
+            <dt>おかずの単品追加</dt>
             <dd class="free">店頭にてご案内</dd>
           </div>
           <div>
-            <dt>デザートの追加</dt>
+            <dt>ドリンクの追加</dt>
             <dd class="free">店頭にてご案内</dd>
           </div>
         </dl>
       </div>
 
       <p class="menu-note">
-        <span class="np">税の扱いや</span><span class="np">お支払い方法は、</span><span class="np">店頭にて</span><span class="np">ご確認ください。</span>
+        <span class="np">価格はすべて店内のメニュー表でご案内しています。</span><span class="np">お支払い方法は</span><span class="np">店頭にてご確認ください。</span><span class="np">仕入れの状況により、内容が変わる場合があります。</span>
       </p>
     </div>
   </section>
@@ -517,61 +521,61 @@ nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !imp
   <section id="beans" class="band">
     <div class="band__inner">
       <div class="hd">
-        <span class="hd__en">Dishes</span>
-        <h2><span class="np">食堂の</span><span class="np">定番の品々</span></h2>
+        <span class="hd__en">DRINK</span>
+        <h2><span class="np">お飲み物の</span><span class="np">ご案内</span></h2>
       </div>
       <p class="lead">
-        <span class="np">ここでは、</span><span class="np">食堂で長く親しまれてきた</span><span class="np">定番の品を、</span><span class="np">料理の写真とあわせて</span><span class="np">ご紹介します。</span><span class="np">価格は店頭でご確認ください。</span>
+        <span class="np">お食事とあわせて</span><span class="np">楽しめる</span><span class="np">定番の飲み物を</span><span class="np">ご用意しています。</span><span class="np">詳しくは</span><span class="np">店内のメニュー表をご覧ください。</span>
       </p>
       <ul class="beans">
         <li class="bean">
           <span class="bean__no">01</span>
           <span class="bean__body">
-            <span class="bean__name">焼き魚の定食</span>
-            <span class="bean__meta">定食</span>
-            <span class="bean__desc"><span class="np">こんがり焼いた魚に</span><span class="np">ごはんと汁物を添えた、</span><span class="np">昔ながらの</span><span class="np">定食の形です。</span></span>
+            <span class="bean__name">コーヒー</span>
+            <span class="bean__meta">ホット・アイス</span>
+            <span class="bean__desc"><span class="np">お食事のあとの</span><span class="np">ひと息に</span><span class="np">ちょうどよい、</span><span class="np">定番の一杯です。</span></span>
           </span>
-          <span class="bean__pr">価格は店頭にて</span>
+          <span class="bean__pr">店頭にてご案内</span>
         </li>
         <li class="bean">
           <span class="bean__no">02</span>
           <span class="bean__body">
-            <span class="bean__name">揚げものの定食</span>
-            <span class="bean__meta">定食</span>
-            <span class="bean__desc"><span class="np">揚げたてのおかずを</span><span class="np">主役にした、</span><span class="np">食べごたえの</span><span class="np">ある一皿です。</span></span>
+            <span class="bean__name">紅茶</span>
+            <span class="bean__meta">ホット・アイス</span>
+            <span class="bean__desc"><span class="np">食後にも、</span><span class="np">休憩のひとときにも</span><span class="np">合わせやすい、</span><span class="np">すっきりとした味わいです。</span></span>
           </span>
-          <span class="bean__pr">価格は店頭にて</span>
+          <span class="bean__pr">店頭にてご案内</span>
         </li>
         <li class="bean">
           <span class="bean__no">03</span>
           <span class="bean__body">
-            <span class="bean__name">丼もの</span>
-            <span class="bean__meta">ごはんもの</span>
-            <span class="bean__desc"><span class="np">丼ひとつで完結する、</span><span class="np">忙しい日の</span><span class="np">お昼にも向く形です。</span></span>
+            <span class="bean__name">緑茶</span>
+            <span class="bean__meta">お食事とご一緒に</span>
+            <span class="bean__desc"><span class="np">和のおかずとの</span><span class="np">相性がよい、</span><span class="np">食事どきの定番の日本茶です。</span></span>
           </span>
-          <span class="bean__pr">価格は店頭にて</span>
+          <span class="bean__pr">店頭にてご案内</span>
         </li>
         <li class="bean">
           <span class="bean__no">04</span>
           <span class="bean__body">
-            <span class="bean__name">カレーライス</span>
-            <span class="bean__meta">ごはんもの</span>
-            <span class="bean__desc"><span class="np">子どもから大人まで、</span><span class="np">世代を超えて</span><span class="np">親しまれてきた</span><span class="np">定番の味です。</span></span>
+            <span class="bean__name">ウーロン茶</span>
+            <span class="bean__meta">すっきりとした後味</span>
+            <span class="bean__desc"><span class="np">こってりしたおかずとも</span><span class="np">合わせやすい、</span><span class="np">食事中の</span><span class="np">定番の一杯です。</span></span>
           </span>
-          <span class="bean__pr">価格は店頭にて</span>
+          <span class="bean__pr">店頭にてご案内</span>
         </li>
         <li class="bean">
           <span class="bean__no">05</span>
           <span class="bean__body">
-            <span class="bean__name">麺類</span>
-            <span class="bean__meta">お食事</span>
-            <span class="bean__desc"><span class="np">つるりと食べやすく、</span><span class="np">忙しい日のお昼にも</span><span class="np">選びやすい一品です。</span></span>
+            <span class="bean__name">オレンジジュース</span>
+            <span class="bean__meta">お子さまにも</span>
+            <span class="bean__desc"><span class="np">お子さまにも</span><span class="np">飲みやすい、</span><span class="np">食事どきの定番のソフトドリンクです。</span></span>
           </span>
-          <span class="bean__pr">価格は店頭にて</span>
+          <span class="bean__pr">店頭にてご案内</span>
         </li>
       </ul>
       <p class="note-s">
-        <span class="np">ここに載せた品は一例です。</span><span class="np">その日のメニューは</span><span class="np">店頭でご確認ください。</span>
+        <span class="np">お飲み物の種類と価格は、</span><span class="np">店内のメニュー表にて</span><span class="np">ご案内しています。</span>
       </p>
     </div>
   </section>
@@ -580,29 +584,29 @@ nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !imp
   <section id="reserve" class="band reserve">
     <div class="band__inner">
       <div class="hd">
-        <span class="hd__en">Reserve</span>
+        <span class="hd__en">RESERVE</span>
         <h2><span class="np">ご予約・</span><span class="np">お問い合わせ</span></h2>
       </div>
       <div class="ways">
         <div class="way">
-          <span class="way__label">メールでのお問い合わせ</span>
-          <a class="way__value" href="tel:0300000000"></a>
+          <span class="way__label">メールでのご予約</span>
+          <a class="way__value" href="tel:0300000000">—</a>
           <p class="way__note">
-            <span class="np">営業時間やお席のことなど、</span><span class="np">気になることは</span><span class="np">メールで</span><span class="np">お気軽にお尋ねください。</span>
+            <span class="np">ご希望の日時と人数、</span><span class="np">お名前を添えて、</span><span class="np">メールにて</span><span class="np">ご連絡ください。</span>
           </p>
         </div>
         <div class="way">
-          <span class="way__label">メールでのご予約</span>
-          <a class="btn-key" href="#contact">メールで予約する</a>
+          <span class="way__label">メールでのお問い合わせ</span>
+          <a class="btn-key" href="#contact">メールを送る</a>
           <p class="way__note">
-            <span class="np">ご希望の日時と人数を</span><span class="np">お知らせください。</span><span class="np">確認のうえ、</span><span class="np">メールでお返事いたします。</span>
+            <span class="np">メニューやお席についての</span><span class="np">ご質問も、</span><span class="np">メールにて</span><span class="np">受け付けています。</span>
           </p>
         </div>
       </div>
       <ul class="promise">
-        <li><span class="np">いただいたメールには、</span><span class="np">確認のうえ</span><span class="np">順番にお返事します。</span><span class="np">お急ぎの場合は</span><span class="np">その旨お書き添えください。</span></li>
-        <li><span class="np">ご予約の変更や取り消しも、</span><span class="np">同じメール窓口で</span><span class="np">承ります。</span><span class="np">遠慮なくお知らせください。</span></li>
-        <li><span class="np">数日たっても返信がないときは、</span><span class="np">お手数ですが、</span><span class="np">もう一度メールをお送りください。</span></li>
+        <li><span class="np">ご予約への</span><span class="np">お返事をもって</span><span class="np">確定となります。</span><span class="np">返信が届かない場合は、</span><span class="np">お手数ですが再度ご連絡ください。</span></li>
+        <li><span class="np">水曜日は定休日のため、</span><span class="np">お返事が翌営業日以降になる</span><span class="np">ことがあります。</span><span class="np">あらかじめご了承ください。</span></li>
+        <li><span class="np">アレルギーなど気になる点がある場合は、</span><span class="np">ご予約の際に</span><span class="np">あわせてお知らせください。</span></li>
       </ul>
     </div>
   </section>
@@ -612,32 +616,32 @@ nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !imp
   <section id="about" class="band">
     <div class="band__inner">
       <div class="hd">
-        <span class="hd__en">About</span>
-        <h2><span class="np">大切にして</span><span class="np">いること</span></h2>
+        <span class="hd__en">ABOUT</span>
+        <h2><span class="np">当店が</span><span class="np">大切にしていること</span></h2>
       </div>
       <p class="lead">
-        <span class="np">テンポラネオ食堂は、</span><span class="np">東京都杉並区荻窪で、</span><span class="np">昼と夜の食事どきに</span><span class="np">店を開けています。</span><span class="np">特別な日のごちそうよりも、</span><span class="np">いつもの一食を</span><span class="np">きちんとお出しする。</span><span class="np">そんな食堂でありたいと考えています。</span>
+        <span class="np">テンポラネオ食堂は、</span><span class="np">東京都杉並区荻窪の食堂です。</span><span class="np">昼と夜、</span><span class="np">それぞれの時間に、</span><span class="np">日々のごはんを</span><span class="np">気取らずに楽しんで</span><span class="np">いただけるよう、</span><span class="np">一皿ずつ丁寧にお作りしています。</span>
       </p>
       <div class="pledges">
         <div class="pledge">
           <span class="pledge__no">一</span>
-          <h3><span class="np">昼と夜、</span><span class="np">食事どきに営業</span></h3>
-          <p><span class="np">お昼は12時から、</span><span class="np">夜は17時30分から。</span><span class="np">水曜日はお休みです。</span></p>
+          <h3><span class="np">日々の食事の</span><span class="np">そばに</span></h3>
+          <p><span class="np">普段づかいしやすい、</span><span class="np">飽きのこない献立を</span><span class="np">心がけています。</span></p>
         </div>
         <div class="pledge">
           <span class="pledge__no">二</span>
-          <h3><span class="np">ふだんの</span><span class="np">一食を大切に</span></h3>
-          <p><span class="np">毎日でも</span><span class="np">通えるような、</span><span class="np">肩ひじ張らない</span><span class="np">食事の場をつくります。</span></p>
+          <h3><span class="np">昼と夜の</span><span class="np">二部営業</span></h3>
+          <p><span class="np">お昼は12時から14時30分、</span><span class="np">夜は17時30分から</span><span class="np">20時まで</span><span class="np">営業しています。</span></p>
         </div>
         <div class="pledge">
           <span class="pledge__no">三</span>
-          <h3><span class="np">ご連絡はメールで</span></h3>
-          <p><span class="np">ご予約もお問い合わせも、</span><span class="np">メールで</span><span class="np">受け付けています。</span><span class="np">お気軽にどうぞ。</span></p>
+          <h3><span class="np">気軽に入れるお店に</span></h3>
+          <p><span class="np">おひとりでも、</span><span class="np">ご家族でも、</span><span class="np">入りやすい店であるよう</span><span class="np">心がけています。</span></p>
         </div>
         <div class="pledge">
           <span class="pledge__no">四</span>
-          <h3><span class="np">わかりやすい</span><span class="np">ご案内</span></h3>
-          <p><span class="np">営業時間や定休日は、</span><span class="np">このページで</span><span class="np">いつでも確認できます。</span></p>
+          <h3><span class="np">荻窪の街と</span><span class="np">ともに</span></h3>
+          <p><span class="np">荻窪の皆さまの</span><span class="np">日常に寄り添う店で</span><span class="np">ありたいと考えています。</span></p>
         </div>
       </div>
       <div class="strip">
@@ -652,40 +656,40 @@ nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !imp
   <section id="person" class="band">
     <div class="band__inner">
       <div class="hd">
-        <span class="hd__en">Owner</span>
-        <h2><span class="np">店主と店のこと</span></h2>
+        <span class="hd__en">INFO</span>
+        <h2><span class="np">店舗のご案内</span></h2>
       </div>
       <div class="person">
         <div class="person__photo ph"><img src="https://images.unsplash.com/photo-1673185180955-bb5d3e6b2a51?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMHBvcnRyYWl0fGVufDF8MXx8fDE3ODY3NjMyMDh8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="店主（作業中の横顔で可）" loading="lazy" decoding="async"></div>
         <div class="person__body">
           <p class="person__name">
-            店主
-            <span class="person__role">テンポラネオ食堂</span>
+            テンポラネオ食堂
+            <span class="person__role">東京都杉並区荻窪の食堂</span>
           </p>
           <dl>
+            <div>
+              <dt>店名</dt>
+              <dd><span class="np">テンポラネオ</span><span class="np">食堂</span></dd>
+            </div>
+            <div>
+              <dt>所在地</dt>
+              <dd><span class="np">東京都杉並区荻窪</span><span class="np">詳しい道順は</span><span class="np">メールにてご案内します。</span></dd>
+            </div>
             <div>
               <dt>営業時間</dt>
               <dd><span class="np">昼 12時00分〜14時30分</span><span class="np">夜 17時30分〜20時00分</span></dd>
             </div>
             <div>
               <dt>定休日</dt>
-              <dd><span class="np">毎週水曜日</span><span class="np">（そのほかの曜日は</span><span class="np">昼・夜ともに営業しています）</span></dd>
+              <dd><span class="np">毎週</span><span class="np">水曜日</span></dd>
             </div>
             <div>
-              <dt>所在地</dt>
-              <dd><span class="np">東京都杉並区荻窪</span><span class="np">（詳しい道順はメールでご案内します）</span></dd>
+              <dt>ご予約・お問い合わせ</dt>
+              <dd><span class="np">メールにて</span><span class="np">受け付けています。</span></dd>
             </div>
             <div>
-              <dt>ご予約</dt>
-              <dd><span class="np">メールで承ります。</span><span class="np">お名前・人数・ご希望日時を</span><span class="np">お知らせください。</span></dd>
-            </div>
-            <div>
-              <dt>メニューと価格</dt>
-              <dd><span class="np">最新のメニューと価格は</span><span class="np">店頭でご確認ください。</span><span class="np">内容は時期により変わることがあります。</span></dd>
-            </div>
-            <div>
-              <dt>お問い合わせ</dt>
-              <dd><span class="np">このページのメールボタンから</span><span class="np">ご連絡ください。</span></dd>
+              <dt>業種</dt>
+              <dd><span class="np">食堂</span><span class="np">（飲食店）</span></dd>
             </div>
           </dl>
         </div>
@@ -697,19 +701,19 @@ nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !imp
   <section id="access" class="band">
     <div class="band__inner">
       <div class="hd">
-        <span class="hd__en">Space</span>
+        <span class="hd__en">INTERIOR</span>
         <h2><span class="np">店内の</span><span class="np">ご案内</span></h2>
       </div>
       <div class="access">
         <div class="access__body">
           <dl>
             <div><dt>住所</dt><dd>東京都杉並区荻窪５丁目１８−９ 杜ビル １階</dd></div>
-            <div><dt>電話</dt><dd></dd></div>
+            <div><dt>電話</dt><dd>—</dd></div>
             <div><dt>営業時間</dt><dd>12:00〜14:30, 17:30〜20:00</dd></div>
             <div><dt>定休日</dt><dd>水曜定休</dd></div>
             <div><dt>最寄り</dt><dd>—</dd></div>
-            <div><dt>席数</dt><dd>席数・設備の詳細は、メールにてお問い合わせください</dd></div>
-            <div><dt>そのほか</dt><dd><span class="np">喫煙の可否や</span><span class="np">お子さま連れでのご利用、</span><span class="np">設備のことなど、</span><span class="np">気になる点は</span><span class="np">メールでお尋ねください。</span></dd></div>
+            <div><dt>席数</dt><dd>席数・設備の詳細はメールにてお問い合わせください</dd></div>
+            <div><dt>そのほか</dt><dd><span class="np">禁煙・喫煙の別や、</span><span class="np">お子さま連れでのご利用については、</span><span class="np">恐れ入りますが</span><span class="np">メールにて</span><span class="np">お問い合わせください。</span></dd></div>
           </dl>
         </div>
         <div class="ph"><img src="https://images.unsplash.com/photo-1782479831998-cbfb1158871c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8N3x8cmVzdGF1cmFudCUyMHN0b3JlZnJvbnQlMjBleHRlcmlvcnxlbnwxfDB8fHwxNzg2NzYzMjA3fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="外観" loading="lazy" decoding="async"></div>
