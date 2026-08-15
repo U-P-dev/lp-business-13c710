@@ -274,6 +274,10 @@ nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !imp
 #contact .ic{flex:none}
 #contact .form__note{font-size:12px;opacity:.7;margin:0}
 #contact .form__done{display:none}
+/* 値の入らなかった任意欄は行ごと畳む（テンプレの「無ければ行ごと削る」の実装。
+   :has() 非対応のブラウザでは従来どおり空欄が残るだけで、悪化はしない） */
+dd:empty{display:none !important}
+div:has(> dd:empty){display:none !important}
 #privacy-policy{padding:56px 20px;font-size:13px;line-height:2}
 #privacy-policy .narrow{max-width:720px;margin:0 auto}
 #privacy-policy h2{font-size:18px;margin:0 0 16px}
@@ -285,7 +289,7 @@ nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !imp
 
 <header>
   <span class="brand">
-    TEMPORA NEO SHOKUDO
+    Tempora Neo Shokudo
   </span>
   <nav>
     <a href="#about">ABOUT</a>
@@ -322,10 +326,10 @@ nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !imp
       <div class="split__text fade-up">
         <p class="eyebrow">ABOUT</p>
         <h2>
-          湯気の向こうに、<br>今日のごはん。
+          湯気の立つ、<br>町の食卓。
         </h2>
         <p class="lead">
-          東京都杉並区荻窪で営む食堂です。昼どきは仕事の合間の人や近所の方が、日が暮れると一日の終わりをほどきに来る人が、静かに席を埋めていきます。特別なことはしていません。あたたかい料理をていねいに作り、できたてを出す。その当たり前を、毎日くり返しています。
+          東京都杉並区荻窪の食堂、テンポラネオ食堂です。昼は十二時から、夜は十七時半から。あたたかいごはんと味噌汁、日々のおかずを、変わらない手順で支度しています。特別な日のためではなく、いつもの一日のために。近所の方にも、はじめての方にも、同じように席をご用意して、お待ちしています。
         </p>
         <a class="more" href="#salon">VIEW MORE</a>
       </div>
@@ -342,10 +346,10 @@ nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !imp
       <div class="split__text fade-up">
         <p class="eyebrow">SALON</p>
         <h2>
-          肩の力が抜ける、<br>気どらない席。
+          ひと息つける、<br>いつもの席。
         </h2>
         <p class="lead">
-          扉を開けると、厨房から料理の音と湯気が届きます。席についてメニューを眺め、今日の腹具合と相談する時間も、食堂の楽しみのうち。運ばれてきた料理を、自分のペースでゆっくり味わってください。ひとりでも、連れ立っても、気兼ねなく過ごせる場所でありたいと思っています。
+          昼どきは定食の湯気で、夕方はおかずの匂いで、店の空気が少しずつ変わります。ひとりでふらりと寄っても、連れ立って来ても、過ごしやすいように席を整えています。急かさず、待たせすぎず。食べ終えたあと、もう少しだけ座っていたくなる。そんな店内であるように、毎日手を入れています。
         </p>
       </div>
       <div class="split__duo">
@@ -361,13 +365,13 @@ nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !imp
       <p class="eyebrow">MENU</p>
       <h2>お品書き</h2>
       <ul class="menu-list">
-        <li><span class="nm">定食</span><span class="dots"></span><span class="pr">—</span></li>
-        <li><span class="nm">ご飯もの</span><span class="dots"></span><span class="pr">—</span></li>
-        <li><span class="nm">一品料理</span><span class="dots"></span><span class="pr">—</span></li>
-        <li><span class="nm">お飲み物</span><span class="dots"></span><span class="pr">—</span></li>
+        <li><span class="nm">日替わり定食</span><span class="dots"></span><span class="pr">—</span></li>
+        <li><span class="nm">焼き魚定食</span><span class="dots"></span><span class="pr">—</span></li>
+        <li><span class="nm">豚の生姜焼き定食</span><span class="dots"></span><span class="pr">—</span></li>
+        <li><span class="nm">鶏の唐揚げ定食</span><span class="dots"></span><span class="pr">—</span></li>
       </ul>
       <p class="menu-note">
-        価格はすべて税込です。仕入れの都合により内容が変わる場合があります。ご予約・お問い合わせはメールで承ります。
+        メニューは仕入れの状況により変わることがあります。ご不明な点はメールでお問い合わせください。
       </p>
     </div>
   </section>
@@ -378,7 +382,7 @@ nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !imp
       <p class="eyebrow">ONE DAY</p>
       <h2>食堂の一日</h2>
       <p>
-        正午、湯気とともに昼の営業が始まります。午後はいちど扉を閉め、夕方五時半、あかりをともしてふたたび開店。夜八時、最後のお客さまを見送って、食堂の一日が静かに終わります。水曜日はゆっくり休んで、また木曜日から。
+        正午、湯気とともに昼の営業がはじまります。十四時半にいったん扉を閉め、仕込みと支度の時間。十七時半、灯りをつけて夜の営業へ。二十時、その日の営業を終えて、また明日の準備をします。水曜日は定休日です。
       </p>
     </div>
     <div class="oneday__bg ph"><img src="https://images.unsplash.com/photo-1591261730799-ee4e6c2d16d7?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wxMDIzODQyfDB8MXxzZWFyY2h8OHx8cmVzdGF1cmFudCUyMHN0b3JlZnJvbnQlMjBleHRlcmlvcnxlbnwxfDB8fHwxNzg2NzYzMjA3fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="外観 or 店内の引き" loading="lazy" decoding="async"></div>
@@ -391,7 +395,7 @@ nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !imp
         <p class="eyebrow">INFORMATION</p>
         <dl>
           <div><dt>住所</dt><dd>東京都杉並区荻窪５丁目１８−９ 杜ビル １階</dd></div>
-          <div><dt>電話</dt><dd></dd></div>
+          <div><dt>電話</dt><dd>—</dd></div>
           <div><dt>営業時間</dt><dd>12:00〜14:30, 17:30〜20:00</dd></div>
           <div><dt>定休日</dt><dd>水曜定休</dd></div>
           <div><dt>アクセス</dt><dd>—</dd></div>
@@ -406,7 +410,7 @@ nav.vbar .vbar__link[aria-current]{background:#fff !important;color:#1c1c1c !imp
     <a href="#contact" aria-label="予約する">
       <span class="big">RESERVATION</span>
       <span class="tel">
-        
+        —
       </span>
     </a>
   </section>
